@@ -1,0 +1,35 @@
+.wellcomeContainer {
+    display: grid;
+    justify-self: center;
+    margin-top: 100px;
+    width: 450px;
+    height: 550px;
+    background-color: rgba(45,45,45,0.9);
+    border-radius: 20px;
+}
+
+.wellcomeContainer h2 {
+    align-self: center;
+    color: aliceblue;
+    font-size: 34px;
+    /* border: 1px solid red; */
+}
+
+.logo {
+    margin-top: -50px;
+}
+
+.logo img {
+    width: 230px;
+    /* border: 1px solid red; */
+}
+
+.text {
+    display: grid;
+    justify-self: center;
+    width: 95%;
+    margin-top: -55px;
+    color: aliceblue;
+    font-weight: bold;
+    /* border: 1px solid red; */
+}

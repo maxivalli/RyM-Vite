@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import style from "./Detail.module.css";
+import style from "./ImageP.module.css";
 
-export default function Detail() {
+export default function ImageP() {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
 
@@ -21,20 +21,8 @@ export default function Detail() {
   }, [id]);
 
   return (
-    <div className={style.component}>
+    <div className={style.container}>
       <img src={character.image} alt={character.name}></img>
-      <h3 className={style.name}>{character.name && character.name}</h3>
-      <p className={style.data}>
-        Gender: {character.gender && character.gender}
-      </p>
-      <p className={style.data}>
-        Status: {character.status && character.status}
-      </p>
-      <p className={style.data}>
-        Species: {character.species && character.species}
-      </p>
-      <p className={style.data}>Origin: {character.origin?.name}</p>
-
       <Link to="/home" className={style.info}>
         <h3>BACK</h3>
       </Link>

@@ -1,5 +1,5 @@
-import style from './NotFound.module.css'
-import { Link } from 'react-router-dom'
+import style from "./NotFound.module.css";
+import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
@@ -9,7 +9,7 @@ export default function NotFound() {
         <p>Page not found</p>
       </div>
       <div className={style.button}>
-        <Link to="/">
+        <Link to="/home">
           <button>Take me Home</button>
         </Link>
       </div>

@@ -16,9 +16,9 @@ export default function SearchBar({ onSearch }) {
 
   function handleRandomClick() {
     const randomId = Math.floor(Math.random() * 826) + 1;
-    
+
     onSearch(randomId);
-    
+
     setId("");
   }
 
