@@ -16,7 +16,7 @@ export default function Wellcome({ onClose }) {
 
   return (
     <div className={style.wellcomeContainer}>
-      <h2>WELLCOME</h2>
+      <h2>WELCOME</h2>
       <div className={style.logo}>
         <img src={Logo}></img>
       </div>
