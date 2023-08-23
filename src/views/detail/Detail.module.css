@@ -1,7 +1,9 @@
 .component {
     display: grid;
-    width: 250px;
-    height: 400px;
+    justify-self: center;
+    margin-top: 100px;
+    width: 300px;
+    height: 430px;
     background-color: rgba(45, 45, 45, 0.9);
     border-radius: 20px;
     margin-bottom: 30px;
@@ -16,7 +18,7 @@
 .component img {
     display: grid;
     justify-self: center;
-    margin-top: -30px;
+    margin-top: 30px;
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -53,13 +55,16 @@
 }
 
 .data {
+    padding-top: 10px;
     margin-top: -30px;
     font-size: 14px;
+    font-weight: bolder;
     align-self: center;
     color: gray;
 }
 
 .info {
+    margin-bottom: 10px;
     display: grid;
     justify-self: center;
     align-content: center;
@@ -77,4 +82,10 @@
 .info:hover {
     scale: 0.9;
     background-color: rgb(179, 120, 235);
+}
+
+@media (max-width: 768px) {
+    .component {
+        margin-top: 200px;
+    }
 }
