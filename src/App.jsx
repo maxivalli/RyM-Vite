@@ -65,9 +65,9 @@ function App() {
   return (
     <div className={style.App}>
       <Routes>
-        <Route path="/" element={<Form />}></Route>
+        <Route path="/RyM-Vite" element={<Form />}></Route>
         <Route
-          path="/home"
+          path="/RyM-Vite/home"
           element={
             <>
               <Navbar onSearch={searchHandler} />{" "}
@@ -77,7 +77,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/about"
+          path="/RyM-Vite/about"
           element={
             <>
               <Navbar onSearch={searchHandler} />
@@ -86,7 +86,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/image/:id"
+          path="/RyM-Vite/image/:id"
           element={
             <>
               <Navbar onSearch={searchHandler} />
@@ -95,7 +95,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/detail/:id"
+          path="/RyM-Vite/detail/:id"
           element={
             <>
               <Navbar onSearch={searchHandler} />

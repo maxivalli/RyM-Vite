@@ -1,3 +1,18 @@
+.login::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-image: url(../../Assets/rick-and-morty-laptop-ke15dy9r0c2hfoxb.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 40%;
+}
+
 .container {
   display: grid;
   justify-self: center;

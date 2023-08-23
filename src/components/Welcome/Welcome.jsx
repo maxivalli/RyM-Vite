@@ -25,8 +25,9 @@ export default function Wellcome({ onClose }) {
           ¡Bienvenido a la página de Rick and Morty!<br/>
           Acá vas a encontrar toda la información sobre los personajes de R&M.<br/>
           <br/>
-          Para empezar podés presionar el botón "random" y se generará una Card de personaje de forma aleatoria.<br/>
-          También podés hacer una búsqueda por ID, por ejemplo ingresando en el campo 23 y presionando la lupa.<br/>
+          Para empezar podés presionar el botón 🔀 y se generará una Card de personaje de forma aleatoria.<br/>
+          <br/>
+          También podés hacer una búsqueda por ID, por ejemplo ingresando en el campo de texto "23" y presionando el botón de 🔍.<br/>
           <br/>
           Dentro de las Cards vas a poder acceder a más infomación y la la foto completa del personaje.
         </p>

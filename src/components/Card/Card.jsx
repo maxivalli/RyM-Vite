@@ -14,13 +14,13 @@ export default function Card(props) {
       >
         X
       </button>
-      <Link to={`/image/${character.id}`} className={style.image}>
+      <Link to={`/RyM-Vite/image/${character.id}`} className={style.image}>
         <img src={character.image} alt={character.name} />
       </Link>
       <h2 className={style.name}>{character.name}</h2>
       <h2 className={style.data}>Status: {character.status}</h2>
       <h2 className={style.data}>Gender: {character.gender}</h2>
-      <Link to={`/detail/${character.id}`} className={style.info}>
+      <Link to={`/RyM-Vite/detail/${character.id}`} className={style.info}>
         <h3>MAS INFO</h3>
       </Link>
     </div>

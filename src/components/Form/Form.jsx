@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Form() {
   return (
     <>
-      <div>
+      <div className={style.login}>
         <img src={Logo}></img>
         <h3 className={style.by}>By Maxi Valli</h3>
       </div>
@@ -24,7 +24,7 @@ export default function Form() {
           <h5 className={style.password}></h5>
           <br />
           <br />
-          <Link to="/home">
+          <Link to="/RyM-Vite/home">
             <button type="submit">Submit</button>
           </Link>
           <h5 className={style.alert}></h5>
