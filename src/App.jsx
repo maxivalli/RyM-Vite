@@ -65,7 +65,7 @@ function App() {
   return (
     <div className={style.App}>
       <Routes>
-        <Route path="/RyM-Vite" element={<Form />}></Route>
+        <Route path="/" element={<Form />}></Route>
         <Route
           path="/RyM-Vite/home"
           element={
