@@ -1,21 +1,43 @@
 //Importaciones Hooks y Axios
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
 //Importaciones Componentes
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import Welcome from "./components/Welcome/Welcome";
 import ImageP from "./components/ImageP/ImageP";
-import Form from "./components/Form/Form";
 //Importaciones Views
-import NotFound from "./views/notFound/NotFound";
+import NotFound from "./views/error/NotFound";
 import About from "./views/about/About";
 import Detail from "./views/detail/Detail";
+import LandingPage from "./views/landingPage/LandingPage";
 //Importacion Style
 import style from "./App.module.css";
 
 function App() {
+  //Para manejar la validación y el Login
+  const EMAIL = "ejemplo@mail.com";
+  const PASSWORD = "1password";
+
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+
+  function login(userData) {
+    if (userData.password === PASSWORD && userData.email === EMAIL) {
+      setAccess(true);
+      navigate("/home");
+    }
+  }
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
+  function logout() {
+    setAccess(false);
+    navigate("/");
+  }
   //Para manejar el mensaje de bienvenida
   const [isOpenWelcome, setIsOpenWelcome] = useState(true);
 
@@ -49,7 +71,6 @@ function App() {
       .then(({ data }) => {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
-
         } else {
           window.alert("¡Debe ingresar un ID!");
         }
@@ -65,42 +86,58 @@ function App() {
   return (
     <div className={style.App}>
       <Routes>
-        <Route path="/" element={<Form />}></Route>
+        <Route path="/" element={<LandingPage login={login} />}></Route>
         <Route
           path="/home"
           element={
-            <>
-              <Navbar onSearch={searchHandler} />{" "}
-              <Cards characters={characters} onClose={closeHandler} />
-              {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
-            </>
+            access ? (
+              <>
+                <Navbar onSearch={searchHandler} onLogout={logout} />{" "}
+                <Cards characters={characters} onClose={closeHandler} />
+                {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
+              </>
+            ) : (
+              <Navigate to="/" replace />
+            )
           }
         ></Route>
         <Route
           path="/about"
           element={
+            access ? (
             <>
-              <Navbar onSearch={searchHandler} />
+              <Navbar onSearch={searchHandler} onLogout={logout}/>
               <About />
             </>
+            ) : (
+              <Navigate to="/" replace />
+            )
           }
         ></Route>
         <Route
           path="/image/:id"
           element={
+            access ? (
             <>
-              <Navbar onSearch={searchHandler} />
+              <Navbar onSearch={searchHandler} onLogout={logout}/>
               <ImageP />
             </>
+            ) : ( 
+              <Navigate to="/" replace />
+            )
           }
         ></Route>
         <Route
           path="/detail/:id"
           element={
+            access ? (
             <>
-              <Navbar onSearch={searchHandler} />
+              <Navbar onSearch={searchHandler} onLogout={logout}/>
               <Detail />
             </>
+            ) : (
+              <Navigate to="/" replace />
+            )
           }
         ></Route>
         <Route path="*" element={<NotFound />}></Route>

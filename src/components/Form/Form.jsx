@@ -1,33 +1,72 @@
+import { useState } from "react";
+import { validate } from '../../functions/validate'
 import style from "./Form.module.css";
-import Logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
 
-export default function Form() {
+
+export default function Form({ login }) {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [errors, setErrors] = useState({
+    email:"",
+    password:"",
+  });
+
+  function handleChange(e) {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+
+    setErrors(validate({
+      ...user,
+      [e.target.name] : e.target.value,
+    }))
+  }
+
+  function handleSubmit (e) {
+    e.preventDefault();
+
+    if(!errors.email && !errors.password) {
+      login(user)
+    } else {
+      alert("Datos incorrectos");
+    }
+  }
+
   return (
     <>
-      <div className={style.login}>
-        <img src={Logo}></img>
-        <h3 className={style.by}>By Maxi Valli</h3>
-      </div>
       <div className={style.container}>
-        <span>Inicia sesión</span>
-        <form>
-          <input type="text" placeholder="Ingresa tu email" name="email" />
-          <h5 className={style.mail}></h5>
-          <br />
-          <br />
+        <h2>Inicia sesión</h2>
+        <form onSubmit={handleSubmit}>
+          <div className={style.email}>
+          <input
+            type="text"
+            placeholder="Ingresa tu email"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+          />
+          {errors.email && <h5 className={style.error}>{errors.email}</h5>}
+          </div>
+          <div className={style.password}>
           <input
             type="password"
             placeholder="Ingresa tu contraseña"
             name="password"
+            value={user.password}
+            onChange={handleChange}
           />
-          <h5 className={style.password}></h5>
-          <br />
-          <br />
-          <Link to="/home">
-            <button type="submit">Submit</button>
-          </Link>
+          {errors.password && <h5 className={style.error}>{errors.password}</h5>}
+          </div>
+          <div>
+          <button type="submit" className={style.submit}>Submit</button>
+          </div>
+          <div className={style.errorLogin}>
           <h5 className={style.alert}></h5>
+          </div>
         </form>
       </div>
     </>

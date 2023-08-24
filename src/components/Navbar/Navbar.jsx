@@ -3,7 +3,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import style from "./Navbar.module.css";
 import Logo from "../../assets/logo.png";
 
-export default function Navbar({ onSearch }) {
+export default function Navbar({ onSearch, onLogout }) {
   return (
     <div className={style.navbar}>
       <div className={style.logo}>
@@ -17,6 +17,7 @@ export default function Navbar({ onSearch }) {
         <Link to="/about" className={style.aboutButton}>
           <h3>ABOUT</h3>
         </Link>
+        <h3 onClick={onLogout} className={style.logoutButton}>LOGOUT</h3>
       </div>
     </div>
   );

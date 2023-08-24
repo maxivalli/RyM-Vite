@@ -33,7 +33,7 @@ export default function Wellcome({ onClose }) {
         </p>
       </div>
       <div>
-        <button onClick={onClose}>CLOSE</button>
+        <button onClick={onClose} className={style.close}>CLOSE</button>
       </div>
     </div>
   );

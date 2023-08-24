@@ -22,7 +22,7 @@ export default function Detail() {
 
   return (
     <div className={style.component}>
-      <img src={character.image} alt={character.name}></img>
+      <img src={character.image && character.image} alt={character.name}></img>
       <h3 className={style.name}>{character.name && character.name}</h3>
       <p className={style.data}>
         Gender: {character.gender && character.gender}
@@ -34,7 +34,7 @@ export default function Detail() {
         Species: {character.species && character.species}
       </p>
       <p className={style.data}>Origin: {character.origin?.name}</p>
-
+      <p className={style.data}> Location: {character.location?.name}</p>
       <Link to="/home" className={style.info}>
         <h3>BACK</h3>
       </Link>

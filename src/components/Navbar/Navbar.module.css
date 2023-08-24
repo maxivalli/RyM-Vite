@@ -1,6 +1,6 @@
 .navbar {
   display: grid;
-  grid-template-columns: 2fr 15fr 2fr;
+  grid-template-columns: 3fr 10fr 3fr;
   position: fixed;
   align-content: center;
   width: 100%;
@@ -47,6 +47,20 @@
   scale: 0.9;
 }
 
+.logoutButton {
+  color: aliceblue;
+  cursor: pointer;
+  color: fuchsia;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: 200ms;
+}
+
+.logoutButton:hover {
+  color: rgb(255, 147, 255);
+  scale: 0.9;
+}
+
 @media (max-width: 768px) {
   .navbar {
     height: auto;
@@ -58,9 +72,11 @@
   .logo {
     display: flex;
     justify-content: center;
+    margin: 0;
   }
 
   .logo img {
+    margin: 0;
     align-self: center;
   }
 
@@ -84,10 +100,6 @@
     color: aliceblue;
   }
 
-  .homeButton:hover {
-    color: aliceblue;
-  }
-
   .aboutButton {
     display: grid;
     margin: 0;
@@ -101,7 +113,16 @@
     color: aliceblue;
   }
 
-  .aboutButton:hover {
+  .logoutButton {
+    display: grid;
+    margin: 0;
+    font-size: 10px;
+    background-color: fuchsia;
+    width: 75px;
+    height: 30px;
+    border-radius: 5px;
+    align-content: center;
+    justify-self: center;
     color: aliceblue;
   }
 }

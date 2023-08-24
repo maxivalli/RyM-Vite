@@ -1,53 +1,72 @@
 .wellcomeContainer {
-    display: grid;
-    justify-self: center;
-    margin-top: 100px;
-    width: 450px;
-    height: 550px;
-    background-color: rgba(45,45,45,0.9);
-    border-radius: 20px;
-    box-shadow: 3px 3px 10px greenyellow, -3px -3px 10px aqua;
+  display: grid;
+  justify-self: center;
+  margin-top: 50px;
+  width: 450px;
+  height: 500px;
+  background-color: rgba(45, 45, 45, 0.9);
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px greenyellow, -3px -3px 10px aqua;
 }
 
 .wellcomeContainer:hover {
-    box-shadow: 3px 3px 20px greenyellow, -3px -3px 20px aqua;
+  box-shadow: 3px 3px 20px greenyellow, -3px -3px 20px aqua;
 }
 
 .wellcomeContainer h2 {
-    align-self: center;
-    color: aliceblue;
-    font-size: 24px;
-    /* border: 1px solid red; */
+  align-self: center;
+  color: aliceblue;
+  font-size: 24px;
 }
 
 .logo {
-    margin-top: -50px;
+  margin-top: -50px;
 }
 
 .logo img {
-    width: 230px;
-    /* border: 1px solid red; */
+  margin-top: -20px;
+  width: 200px;
 }
 
 .text {
-    display: grid;
-    justify-self: center;
-    width: 95%;
-    margin-top: -55px;
-    color: gray;
-    font-weight: bold;
-    text-align: center;
-    /* border: 1px solid red; */
+  display: grid;
+  justify-self: center;
+  width: 95%;
+  margin-top: -55px;
+  color: gray;
+  font-weight: bold;
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+.close {
+  font-size: 12px;
+  border: 0;
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  transition: 200ms;
+}
+
+.close:hover {
+  scale: 0.9;
+  background-color: rgb(179, 120, 235);
 }
 
 @media (max-width: 768px) {
-    .wellcomeContainer {
-        margin-top: 0;
-        width: 300px;
-        height: 500px;
-    }
+  .wellcomeContainer {
+    margin-top: -20px;
+    width: 300px;
+    height: 450px;
+  }
 
-    .text {
-        font-size: 13px;
-    }
+  .wellcomeContainer h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  .text {
+    font-size: 13px;
+  }
 }

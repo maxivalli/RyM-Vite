@@ -1,6 +1,9 @@
 import React from "react";
 import style from "./About.module.css";
 import Perfil from "../../assets/perfil.png";
+import Instagram from '../../assets/instagram.png';
+import Gmail from '../../assets/gmail.png';
+import Github from '../../assets/github.png'
 
 export default function About() {
   return (
@@ -18,6 +21,11 @@ export default function About() {
           Hasta ahora la expericia es genial y esta página fue construída con
           todo lo que aprendí.
         </p>
+        <div>
+          <a href='https://www.instagram.com/maxi.valli.aicardi/' target="_blank"> <img src={Instagram} alt="instagram" className={style.logo}/> </a>
+          <a href='mailto:maximilianovalli.sc@gmail.com'> <img src={Gmail} alt="gmail" className={style.logo}/> </a>
+          <a href='https://github.com/maxivalli' target="_blank"> <img src={Github} alt="github" className={style.logo}/> </a>
+        </div>
       </div>
     </div>
   );
