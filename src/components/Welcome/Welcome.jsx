@@ -29,7 +29,7 @@ export default function Wellcome({ onClose }) {
           <br/>
           También podés hacer una búsqueda por ID, por ejemplo ingresando en el campo de texto "23" y presionando el botón de 🔍.<br/>
           <br/>
-          Dentro de las Cards vas a poder acceder a más infomación y la la foto completa del personaje.
+          Dentro de las Cards vas a poder acceder a más infomación y la foto completa del personaje.
         </p>
       </div>
       <div>
