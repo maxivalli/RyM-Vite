@@ -35,7 +35,7 @@ export default function Detail() {
       </p>
       <p className={style.data}>Origin: {character.origin?.name}</p>
 
-      <Link to="/RyM-Vite/home" className={style.info}>
+      <Link to="/home" className={style.info}>
         <h3>BACK</h3>
       </Link>
     </div>

@@ -23,7 +23,7 @@ export default function ImageP() {
   return (
     <div className={style.container}>
       <img src={character.image} alt={character.name}></img>
-      <Link to="/RyM-Vite/home" className={style.info}>
+      <Link to="/home" className={style.info}>
         <h3>BACK</h3>
       </Link>
     </div>

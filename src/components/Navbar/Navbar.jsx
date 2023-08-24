@@ -11,10 +11,10 @@ export default function Navbar({ onSearch }) {
       </div>
       <SearchBar className={style.searchbar} onSearch={onSearch} />
       <div className={style.buttons}>
-        <Link to="/RyM-Vite/home" className={style.homeButton}>
+        <Link to="/home" className={style.homeButton}>
           <h3>HOME</h3>
         </Link>
-        <Link to="/RyM-Vite/about" className={style.aboutButton}>
+        <Link to="/about" className={style.aboutButton}>
           <h3>ABOUT</h3>
         </Link>
       </div>

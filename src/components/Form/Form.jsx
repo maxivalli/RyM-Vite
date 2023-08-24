@@ -24,7 +24,7 @@ export default function Form() {
           <h5 className={style.password}></h5>
           <br />
           <br />
-          <Link to="/RyM-Vite/home">
+          <Link to="/home">
             <button type="submit">Submit</button>
           </Link>
           <h5 className={style.alert}></h5>

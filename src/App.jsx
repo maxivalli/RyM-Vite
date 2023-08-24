@@ -67,7 +67,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Form />}></Route>
         <Route
-          path="/RyM-Vite/home"
+          path="/home"
           element={
             <>
               <Navbar onSearch={searchHandler} />{" "}
@@ -77,7 +77,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/RyM-Vite/about"
+          path="/about"
           element={
             <>
               <Navbar onSearch={searchHandler} />
@@ -86,7 +86,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/RyM-Vite/image/:id"
+          path="/image/:id"
           element={
             <>
               <Navbar onSearch={searchHandler} />
@@ -95,7 +95,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/RyM-Vite/detail/:id"
+          path="/detail/:id"
           element={
             <>
               <Navbar onSearch={searchHandler} />
