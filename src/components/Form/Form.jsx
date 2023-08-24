@@ -44,7 +44,7 @@ export default function Form({ login }) {
           <div className={style.email}>
           <input
             type="text"
-            placeholder="Ingresa tu email"
+            placeholder="ejemplo@mail.com"
             name="email"
             value={user.email}
             onChange={handleChange}
@@ -54,7 +54,7 @@ export default function Form({ login }) {
           <div className={style.password}>
           <input
             type="password"
-            placeholder="Ingresa tu contraseña"
+            placeholder="1password"
             name="password"
             value={user.password}
             onChange={handleChange}
