@@ -32,7 +32,7 @@ export default function Form({ login }) {
     if(!errors.email && !errors.password) {
       login(user)
     } else {
-      alert("Datos incorrectos");
+      alert("Datos incorrectos")
     }
   }
 
@@ -63,9 +63,6 @@ export default function Form({ login }) {
           </div>
           <div>
           <button type="submit" className={style.submit}>Submit</button>
-          </div>
-          <div className={style.errorLogin}>
-          <h5 className={style.alert}></h5>
           </div>
         </form>
       </div>
