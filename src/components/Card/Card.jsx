@@ -23,7 +23,7 @@ export default function Card(props) {
       <h2 className={style.data}>Gender: {character.gender}</h2>
       </div>
       <Link to={`/detail/${character.id}`}>
-        <button className={style.masInfo}>+INFO</button>
+        <button className={style.masInfo}>MAS INFO</button>
       </Link>
     </div>
   );

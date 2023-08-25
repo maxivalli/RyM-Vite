@@ -16,7 +16,7 @@ import LandingPage from "./views/landingPage/LandingPage";
 import style from "./App.module.css";
 
 function App() {
-  //Para manejar la validación y el Login
+  //Para manejar la validación, el Login y Logout
   const EMAIL = import.meta.env.VITE_MAIL;
   const PASSWORD = import.meta.env.VITE_PASSWORD;
 
@@ -86,13 +86,13 @@ function App() {
   return (
     <div className={style.App}>
       <Routes>
-        <Route path="/" element={<LandingPage login={login} />}></Route>
+        <Route path="/" element={<LandingPage login={login} />} />
         <Route
           path="/home"
           element={
             access ? (
               <>
-                <Navbar onSearch={searchHandler} onLogout={logout} />{" "}
+                <Navbar onSearch={searchHandler} onLogout={logout} />
                 <Cards characters={characters} onClose={closeHandler} />
                 {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
               </>
@@ -100,47 +100,47 @@ function App() {
               <Navigate to="/" replace />
             )
           }
-        ></Route>
+        />
         <Route
           path="/about"
           element={
             access ? (
-            <>
-              <Navbar onSearch={searchHandler} onLogout={logout}/>
-              <About />
-            </>
+              <>
+                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <About />
+              </>
             ) : (
               <Navigate to="/" replace />
             )
           }
-        ></Route>
+        />
         <Route
           path="/image/:id"
           element={
             access ? (
-            <>
-              <Navbar onSearch={searchHandler} onLogout={logout}/>
-              <ImageP />
-            </>
-            ) : ( 
-              <Navigate to="/" replace />
-            )
-          }
-        ></Route>
-        <Route
-          path="/detail/:id"
-          element={
-            access ? (
-            <>
-              <Navbar onSearch={searchHandler} onLogout={logout}/>
-              <Detail />
-            </>
+              <>
+                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <ImageP />
+              </>
             ) : (
               <Navigate to="/" replace />
             )
           }
-        ></Route>
-        <Route path="*" element={<NotFound />}></Route>
+        />
+        <Route
+          path="/detail/:id"
+          element={
+            access ? (
+              <>
+                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <Detail />
+              </>
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
