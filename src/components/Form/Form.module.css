@@ -49,6 +49,7 @@ input {
   height: 30px;
   border-radius: 10px;
   background-color: blueviolet;
+  color: aliceblue;
   transition: 200ms;
   margin-top: 50px;
 }
