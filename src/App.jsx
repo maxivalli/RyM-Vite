@@ -36,6 +36,7 @@ function App() {
 
   function logout() {
     setAccess(false);
+    setCharacters([])
     navigate("/");
   }
   //Para manejar el mensaje de bienvenida

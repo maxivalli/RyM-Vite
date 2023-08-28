@@ -32,12 +32,18 @@
   scale: 1.1;
 }
 
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .close {
   display: grid;
   justify-self: end;
+  font-size: 18px;
   background-color: rgba(255, 255, 255, 0);
-  color: aliceblue;
-  margin: 10px;
+  margin-right: 13px;
+  margin-top: 10px;
   width: 25px;
   height: 25px;
   border-radius: 50px;
@@ -48,7 +54,22 @@
 
 .close:hover {
   scale: 1.2;
-  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.fav {
+  display: grid;
+  background-color: rgba(255, 255, 255, 0);
+  margin: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  align-content: center;
+  border: 0;
+  transition: 200ms;
+}
+
+.fav:hover {
+  scale: 1.2;
 }
 
 .name {
