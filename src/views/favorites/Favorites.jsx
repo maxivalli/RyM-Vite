@@ -1,8 +1,18 @@
-import React from 'react'
-import style from './Favorites.module.css'
+import { connect } from 'react-redux'
+import Cards from '../../components/Cards/Cards'
 
-export default function Favorites() {
+function Favorites({favorites}) {
   return (
-    <div>Favorites</div>
+    <>
+      <Cards characters={favorites}/>
+    </>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    favorites: state.myFavorites
+  }
+}
+
+export default connect(mapStateToProps, null)(Favorites);

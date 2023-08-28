@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import style from "./Detail.module.css";
 
 export default function Detail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
@@ -19,6 +20,10 @@ export default function Detail() {
     );
     return setCharacter({});
   }, [id]);
+
+  const goBack = () => {
+    navigate(-1);
+  }
 
   return (
     <div className={style.component}>
@@ -35,9 +40,7 @@ export default function Detail() {
       </p>
       <p className={style.data}>Origin: {character.origin?.name}</p>
       <p className={style.data}> Location: {character.location?.name}</p>
-      <Link to="/home" className={style.info}>
-        <h3>BACK</h3>
-      </Link>
+      <button onClick={goBack} className={style.back}>BACK</button>
     </div>
   );
 }

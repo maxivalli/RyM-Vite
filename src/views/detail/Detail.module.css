@@ -26,24 +26,6 @@
   transition: 200ms;
 }
 
-.close {
-  display: grid;
-  justify-self: end;
-  background-color: rgba(255, 255, 255, 0);
-  color: aliceblue;
-  width: 25px;
-  height: 25px;
-  border-radius: 50px;
-  align-content: center;
-  border: 0;
-  transition: 200ms;
-}
-
-.close:hover {
-  scale: 1.2;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
 .name {
   color: blueviolet;
   font-size: 24px;
@@ -59,23 +41,19 @@
   color: gray;
 }
 
-.info {
-  margin-bottom: 10px;
+.back {
   display: grid;
   justify-self: center;
-  align-content: center;
-  font-size: 10px;
-  width: 80px;
+  width: 70px;
   height: 30px;
-  border: 0;
-  border-radius: 10px;
-  text-decoration: none;
   background-color: blueviolet;
   color: aliceblue;
-  transition: 200ms;
+  border: 0;
+  border-radius: 10px;
+  align-content: center;
 }
 
-.info:hover {
+.back:hover {
   scale: 0.9;
   background-color: rgb(179, 120, 235);
 }

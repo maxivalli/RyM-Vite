@@ -14,10 +14,15 @@ export default function Navbar({ onSearch, onLogout }) {
         <Link to="/home" className={style.homeButton}>
           <h3>HOME</h3>
         </Link>
+        <Link to="/favoritos" className={style.favButton}>
+          <h3>FAVS</h3>
+        </Link>
         <Link to="/about" className={style.aboutButton}>
           <h3>ABOUT</h3>
         </Link>
-        <h3 onClick={onLogout} className={style.logoutButton}>LOGOUT</h3>
+        <h3 onClick={onLogout} className={style.logoutButton}>
+          LOGOUT
+        </h3>
       </div>
     </div>
   );

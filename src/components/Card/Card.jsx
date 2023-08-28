@@ -1,13 +1,24 @@
-import { useState } from "react";
+//Importaciones React
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+//Importaciones Redux
 import { connect } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/actions";
-import { Link } from "react-router-dom";
+//Importacion estilos
 import style from "./Card.module.css";
 
 function Card(props) {
   const { character, onClose, addFavorite, removeFavorite, favorites } = props;
 
   const [isFav, setIsFav] = useState(false);
+
+  useEffect(() => {
+    favorites.forEach((fav) => {
+      if (fav.id === character.id) {
+        setIsFav(true);
+      }
+    });
+  }, [favorites]);
 
   function handleFavorite(data) {
     if (!isFav) {
@@ -22,23 +33,29 @@ function Card(props) {
   return (
     <div className={style.component}>
       <div className={style.buttons}>
-      {isFav ? (
-        <button onClick={() => handleFavorite(character.id)} className={style.fav}>
-          💜
+        {isFav ? (
+          <button
+            onClick={() => handleFavorite(character.id)}
+            className={style.fav}
+          >
+            💜
+          </button>
+        ) : (
+          <button
+            onClick={() => handleFavorite(character)}
+            className={style.fav}
+          >
+            🤍
+          </button>
+        )}
+        <button
+          onClick={() => {
+            onClose(character.id);
+          }}
+          className={style.close}
+        >
+          ✖️
         </button>
-      ) : (
-        <button onClick={()=> handleFavorite(character)} className={style.fav}>
-          🤍
-        </button>
-      )}
-      <button
-        onClick={() => {
-          onClose(character.id);
-        }}
-        className={style.close}
-      >
-        ✖️
-      </button>
       </div>
       <Link to={`/image/${character.id}`} className={style.image}>
         <img src={character.image} alt={character.name} />

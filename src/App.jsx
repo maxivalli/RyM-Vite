@@ -12,6 +12,7 @@ import NotFound from "./views/error/NotFound";
 import About from "./views/about/About";
 import Detail from "./views/detail/Detail";
 import LandingPage from "./views/landingPage/LandingPage";
+import Favorites from "./views/favorites/Favorites";
 //Importacion Style
 import style from "./App.module.css";
 
@@ -36,7 +37,7 @@ function App() {
 
   function logout() {
     setAccess(false);
-    setCharacters([])
+    setCharacters([]);
     navigate("/");
   }
   //Para manejar el mensaje de bienvenida
@@ -96,6 +97,19 @@ function App() {
                 <Navbar onSearch={searchHandler} onLogout={logout} />
                 <Cards characters={characters} onClose={closeHandler} />
                 {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
+              </>
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
+        />
+        <Route
+          path="/favoritos"
+          element={
+            access ? (
+              <>
+                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <Favorites />
               </>
             ) : (
               <Navigate to="/" replace />
