@@ -7,16 +7,6 @@
   border-radius: 20px;
   margin-top: 50px;
   box-shadow: 3px 3px 10px greenyellow, -3px -3px 10px aqua;
-  animation: grow 0.7s forwards;
-}
-
-@keyframes grow {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 .container:hover {
