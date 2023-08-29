@@ -3,7 +3,7 @@
   justify-self: center;
   align-content: center;
   align-self: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 350px;
   height: 50px;
   border-radius: 10px;
@@ -43,6 +43,28 @@
   width: 27px;
 }
 
+.music {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  align-content: center;
+  background-color: gray;
+  color: aliceblue;
+  margin-left: 10px;
+  border-radius: 50%;
+  border: 0;
+}
+
+.music:hover {
+  scale: 0.9;
+  background-color: aquamarine;
+  box-shadow: 0px 0px 5px aquamarine;
+}
+
+.music img {
+  width: 27px;
+}
+
 .random {
   display: grid;
   width: 40px;
@@ -65,8 +87,56 @@
   width: 27px;
 }
 
+.favButton {
+  display: grid;
+}
+
+.favButton button {
+  background-color: yellowgreen;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  margin-right: 10px;
+}
+
+.favButton button:hover {
+  scale: 0.9;
+  background-color: greenyellow;
+  box-shadow: 0px 0px 5px greenyellow;
+}
+
+.favButton button img {
+  width: 27px;
+  padding-top: 5px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotate 2s linear infinite;
+  background-color: aquamarine;
+}
+
+.rotating:hover {
+  scale: 0.9;
+  background-color: gray;
+  box-shadow: 0px 0px 5px gray;
+}
+
 @media (max-width: 768px) {
   .searchBar {
     margin-left: 0px;
+  }
+
+  .searchBar input {
+    width: 150px;
   }
 }

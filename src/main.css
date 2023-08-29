@@ -5,7 +5,7 @@ body {
   font-family: 'Orbitron';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./assets/2474215.jpg);
+  background-color: rgb(32, 18, 48);
   background-size: cover;
   background-attachment: fixed;
 }

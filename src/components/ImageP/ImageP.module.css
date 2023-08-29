@@ -1,3 +1,18 @@
+.container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-image: url(../../Assets/2474215.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 30%;
+}
+
 .container {
   display: grid;
   justify-self: center;

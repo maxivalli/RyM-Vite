@@ -9,13 +9,10 @@ export default function Navbar({ onSearch, onLogout }) {
       <div className={style.logo}>
         <img src={Logo}></img>
       </div>
-      <SearchBar className={style.searchbar} onSearch={onSearch} />
+      <SearchBar onSearch={onSearch} />
       <div className={style.buttons}>
         <Link to="/home" className={style.homeButton}>
           <h3>HOME</h3>
-        </Link>
-        <Link to="/favoritos" className={style.favButton}>
-          <h3>FAVS</h3>
         </Link>
         <Link to="/about" className={style.aboutButton}>
           <h3>ABOUT</h3>
