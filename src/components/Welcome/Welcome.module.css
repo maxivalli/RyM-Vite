@@ -16,11 +16,12 @@
 .wellcomeContainer h2 {
   align-self: center;
   color: aliceblue;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .logo {
   margin-top: -50px;
+  margin-bottom: 20px;
 }
 
 .logo img {
@@ -35,6 +36,7 @@
   margin-top: -55px;
   color: gray;
   font-weight: bold;
+  font-size: 14px;
   text-align: center;
   /* border: 1px solid red; */
 }
@@ -47,6 +49,7 @@
   height: 30px;
   border-radius: 10px;
   background-color: blueviolet;
+  color: aliceblue;
   transition: 200ms;
 }
 
