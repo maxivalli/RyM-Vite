@@ -15,9 +15,9 @@
 
 .id {
   display: grid;
-  width: 70px;
+  width: 80px;
   height: 30px;
-  font-size: 12px;
+  font-size: 11px;
   justify-self: center;
   margin-top: -30px;
 }
