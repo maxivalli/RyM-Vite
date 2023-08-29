@@ -1,9 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import {
-  orderFavorites,
-  filterFavorites,
-  resetFavorites,
-} from "../../redux/actions";
+import { orderFavorites, filterFavorites, resetFavorites } from "../../redux/actions";
 import Cards from "../../components/Cards/Cards";
 import style from "./Favorites.module.css";
 
