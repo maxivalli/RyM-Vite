@@ -24,13 +24,15 @@ export default function Favorites() {
     <>
       <div className={style.selectors}>
         <select onChange={handleFilter}>
+        <option value="" disabled>Genero</option> 
           {["Male", "Female", "unknown", "Genderless"].map((gender) => (
-            <option value={gender}>{gender}</option>
+            <option key={gender} value={gender}>{gender}</option>
           ))}
         </select>
         <select onChange={handleSort}>
+        <option value="" disabled>Orden</option> 
           {["Ascendente", "Descendente"].map((order) => (
-            <option value={order}>{order}</option>
+            <option key={order} value={order}>{order}</option>
           ))}
         </select>
         <button onClick={handleReset} className={style.reset}>RESET</button>
