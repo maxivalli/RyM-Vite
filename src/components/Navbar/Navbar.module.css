@@ -34,10 +34,6 @@
   scale: 0.9;
 }
 
-.homeButton:focus {
-  text-decoration:overline;
-}
-
 .aboutButton {
   color: aliceblue;
   cursor: pointer;
@@ -50,10 +46,6 @@
 .aboutButton:hover {
   text-shadow: 0px 0px 10px blueviolet;
   scale: 0.9;
-}
-
-.aboutButton:focus {
-  text-decoration:overline;
 }
 
 .logoutButton {
