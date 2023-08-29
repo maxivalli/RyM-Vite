@@ -1,18 +1,42 @@
-import { connect } from 'react-redux'
-import Cards from '../../components/Cards/Cards'
+import { useSelector, useDispatch } from "react-redux";
+import { orderFavorites, filterFavorites, resetFavorites } from "../../redux/actions";
+import Cards from "../../components/Cards/Cards";
+import style from "./Favorites.module.css";
 
-function Favorites({favorites}) {
+export default function Favorites() {
+  
+  const favorites = useSelector((state) => state.myFavorites);
+  const dispatch = useDispatch();
+
+  function handleSort(e) {
+    dispatch(orderFavorites(e.target.value));
+  }
+
+  function handleFilter(e) {
+    dispatch(filterFavorites(e.target.value));
+  }
+  
+  function handleReset() {
+    dispatch(resetFavorites());
+  }
+
   return (
     <>
-      <Cards characters={favorites}/>
+      <div className={style.selectors}>
+        <select onChange={handleFilter}>
+          {["Male", "Female", "unknown", "Genderless"].map((gender) => (
+            <option value={gender}>{gender}</option>
+          ))}
+        </select>
+        <select onChange={handleSort}>
+          {["Ascendente", "Descendente"].map((order) => (
+            <option value={order}>{order}</option>
+          ))}
+        </select>
+        <button onClick={handleReset} className={style.reset}>RESET</button>
+      </div>
+      <Cards characters={favorites} className={style.cards}/>
     </>
-  )
+  );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    favorites: state.myFavorites
-  }
-}
-
-export default connect(mapStateToProps, null)(Favorites);

@@ -12,6 +12,14 @@ function Card(props) {
 
   const [isFav, setIsFav] = useState(false);
 
+  const [closeButton, setCloseButton] = useState(true);
+
+  useEffect(() => {
+    if (!onClose) {
+      setCloseButton(false);
+    }
+  }, []);
+
   useEffect(() => {
     favorites.forEach((fav) => {
       if (fav.id === character.id) {
@@ -48,14 +56,19 @@ function Card(props) {
             🤍
           </button>
         )}
-        <button
-          onClick={() => {
-            onClose(character.id);
-          }}
-          className={style.close}
-        >
-          ✖️
-        </button>
+        {closeButton && (
+          <button
+            onClick={() => {
+              onClose(character.id);
+            }}
+            className={style.close}
+          >
+            ✖️
+          </button>
+        )}
+      </div>
+      <div className={style.id}>
+        <h2>Id: {character.id}</h2>
       </div>
       <Link to={`/image/${character.id}`} className={style.image}>
         <img src={character.image} alt={character.name} />

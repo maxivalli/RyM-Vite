@@ -1,7 +1,37 @@
-.container {
+.selectors {
   display: grid;
-  justify-content: right;
-  margin-top: 100px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 50px;
+  justify-content: center;
+  height: 50px;
+  grid-template-columns: 110px 110px 80px;
+  gap: 20px;
+  margin-top: 60px;
+  background-color: rgba(45, 45, 45, 0.5);
+  margin-bottom: -50px;
+}
+
+.selectors select {
+  height: 25px;
+  align-self: center;
+  background-color: grey;
+  font-family: 'Orbitron';
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.reset {
+  width: 60px;
+  height: 25px;
+  align-self: center;
+  border: 0;
+  background-color: blueviolet;
+  color: aliceblue;
+  border-radius: 5px;
+  justify-self: center;
+}
+
+@media (max-width: 768px) {
+  .selectors {
+    margin-top: 150px;
+    margin-bottom: -150px;
+  }
 }

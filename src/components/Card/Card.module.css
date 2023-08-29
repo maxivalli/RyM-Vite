@@ -13,6 +13,22 @@
   box-shadow: 3px 3px 20px aqua, -3px -3px 20px greenyellow;
 }
 
+.id {
+  display: grid;
+  width: 70px;
+  height: 30px;
+  font-size: 12px;
+  justify-self: center;
+  margin-top: -30px;
+}
+
+.id h2 {
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  color: aqua;
+}
+
 .image {
   display: grid;
 }

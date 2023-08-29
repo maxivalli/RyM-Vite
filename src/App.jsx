@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
+//Importaciones Redux
+import { useDispatch } from "react-redux";
+import { removeFavorite } from "./redux/actions";
 //Importaciones Componentes
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
@@ -23,6 +26,7 @@ function App() {
 
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
+  const dispatch = useDispatch();
 
   function login(userData) {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
@@ -51,6 +55,8 @@ function App() {
 
   const closeHandler = (id) => {
     let deleted = characters.filter((character) => character.id !== Number(id));
+
+    dispatch(removeFavorite(id));
 
     setCharacters(deleted);
   };
@@ -109,7 +115,7 @@ function App() {
             access ? (
               <>
                 <Navbar onSearch={searchHandler} onLogout={logout} />
-                <Favorites />
+                <Favorites/>
               </>
             ) : (
               <Navigate to="/" replace />
