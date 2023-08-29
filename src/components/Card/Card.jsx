@@ -38,7 +38,7 @@ function Card(props) {
             onClick={() => handleFavorite(character.id)}
             className={style.fav}
           >
-            💜
+            💚
           </button>
         ) : (
           <button

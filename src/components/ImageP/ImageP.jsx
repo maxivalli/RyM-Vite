@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import style from "./ImageP.module.css";
 
 export default function ImageP() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
@@ -20,12 +21,14 @@ export default function ImageP() {
     return setCharacter({});
   }, [id]);
 
+  const goBack = () => {
+    navigate(-1);
+  }
+
   return (
     <div className={style.container}>
       <img src={character.image} alt={character.name}></img>
-      <Link to="/home" className={style.info}>
-        <h3>BACK</h3>
-      </Link>
+      <button onClick={goBack} className={style.back}>BACK</button>
     </div>
   );
 }

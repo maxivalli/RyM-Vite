@@ -58,6 +58,26 @@
   background-color: rgb(179, 120, 235);
 }
 
+.back {
+  display: grid;
+  justify-self: center;
+  margin-top: 20px;
+  width: 70px;
+  height: 30px;
+  background-color: blueviolet;
+  color: aliceblue;
+  font-family:'Orbitron';
+  font-size: 12px;
+  border: 0;
+  border-radius: 10px;
+  align-content: center;
+}
+
+.back:hover {
+  scale: 0.9;
+  background-color: rgb(179, 120, 235);
+}
+
 @media (max-width: 768px) {
   .container {
     margin-top: 200px;
