@@ -20,7 +20,7 @@ import Favorites from "./views/favorites/Favorites";
 import style from "./App.module.css";
 
 function App() {
-  //Para manejar la validación, el Login y Logout
+  //Para manejar la validación y el Login
   const EMAIL = import.meta.env.VITE_MAIL;
   const PASSWORD = import.meta.env.VITE_PASSWORD;
 
@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     !access && navigate("/");
   }, [access]);
-
+  //Para manejar el Logout
   function logout() {
     setAccess(false);
     setCharacters([]);

@@ -9,17 +9,16 @@ import style from "./Card.module.css";
 
 function Card(props) {
   const { character, onClose, addFavorite, removeFavorite, favorites } = props;
-
+  //Estado local para controlar si el personaje es un favorito y si se debe mostrar el botón de cerrar
   const [isFav, setIsFav] = useState(false);
-
   const [closeButton, setCloseButton] = useState(true);
-
+  //Para manejar el renderizado del boton Close
   useEffect(() => {
     if (!onClose) {
       setCloseButton(false);
     }
   }, []);
-
+  //Para determinar si el personaje es un favorito y actualizar el estado en consecuencia
   useEffect(() => {
     favorites.forEach((fav) => {
       if (fav.id === character.id) {
@@ -27,7 +26,7 @@ function Card(props) {
       }
     });
   }, [favorites]);
-
+  //Función para manejar la adición o eliminación del personaje de la lista de favoritos
   function handleFavorite(data) {
     if (!isFav) {
       addFavorite(data);
@@ -84,7 +83,7 @@ function Card(props) {
     </div>
   );
 }
-
+//Conexión del componente con Redux
 const mapDispatchToProps = (dispatch) => {
   return {
     addFavorite: (character) => dispatch(addFavorite(character)),
