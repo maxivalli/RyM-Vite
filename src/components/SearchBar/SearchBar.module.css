@@ -87,6 +87,15 @@
   width: 27px;
 }
 
+@keyframes latido {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: rotate(1.4);
+  }
+}
+
 .favButton {
   display: grid;
 }
@@ -109,6 +118,7 @@
 .favButton button img {
   width: 27px;
   padding-top: 5px;
+  animation: latido 1s linear infinite;
 }
 
 @keyframes rotate {

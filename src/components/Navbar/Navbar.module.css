@@ -34,19 +34,8 @@
   scale: 0.9;
 }
 
-.favButton {
-  color: aliceblue;
-  margin-right: 10px;
-  cursor: pointer;
-  color: rgb(131, 181, 30);
-  align-self: baseline;
-  text-decoration: none;
-  transition: 200ms;
-}
-
-.favButton:hover {
-  text-shadow: 0px 0px 10px rgb(131, 181, 30);
-  scale: 0.9;
+.homeButton:focus {
+  text-decoration:overline;
 }
 
 .aboutButton {
@@ -61,6 +50,10 @@
 .aboutButton:hover {
   text-shadow: 0px 0px 10px blueviolet;
   scale: 0.9;
+}
+
+.aboutButton:focus {
+  text-decoration:overline;
 }
 
 .logoutButton {
