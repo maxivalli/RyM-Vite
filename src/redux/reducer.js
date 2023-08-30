@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, RESET } from "./actions";
+import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, RESET, CLEAR_FAVORITES } from "./actions";
 
 let initialState = { myFavorites: [], allCharacters: [] };
 
@@ -43,7 +43,13 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         myFavorites: state.allCharacters,
-      }
+      };
+
+    case CLEAR_FAVORITES:
+      return {
+        ...state,
+        myFavorites: [],
+      };
 
     default:
       return {

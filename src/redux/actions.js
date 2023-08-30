@@ -3,6 +3,7 @@ export const REMOVE_FAV = 'REMOVE_FAV'
 export const ORDER = 'ORDER'
 export const FILTER = 'FILTER'
 export const RESET = 'RESET'
+export const CLEAR_FAVORITES = 'CLEAR_FAVORITES'
 
 export function addFavorite (character) {
     return {
@@ -37,5 +38,11 @@ export function resetFavorites() {
         type: RESET,
     }
 }
+
+export const clearFavorites = () => {
+    return {
+      type: CLEAR_FAVORITES,
+    };
+  };
 
 

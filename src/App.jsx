@@ -5,6 +5,7 @@ import axios from "axios";
 //Importaciones Redux
 import { useDispatch } from "react-redux";
 import { removeFavorite } from "./redux/actions";
+import { clearFavorites } from "./redux/actions";
 //Importaciones Componentes
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
@@ -42,6 +43,7 @@ function App() {
   function logout() {
     setAccess(false);
     setCharacters([]);
+    dispatch(clearFavorites());
     navigate("/");
   }
   //Para manejar el mensaje de bienvenida
