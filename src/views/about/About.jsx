@@ -14,7 +14,7 @@ export default function About() {
       </div>
       <div className={style.text}>
         <p>
-          Tengo 38 años y soy de la provincia de Santa Fe,<br></br>
+          Mi nombre es Maximiliano Valli, tengo 38 años y soy de la provincia de Santa Fe,<br></br>
           empecé este año a estudiar en Henry porque tenía ganas de aprender
           programación.<br></br>
           <br></br>
