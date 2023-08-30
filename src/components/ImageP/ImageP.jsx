@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Footer from "../Footer/Footer"
 import style from "./ImageP.module.css";
 
 export default function ImageP() {
@@ -32,7 +31,6 @@ export default function ImageP() {
       <img src={character.image} alt={character.name}></img>
       <button onClick={goBack} className={style.back}>BACK</button>
     </div>
-    <Footer></Footer>
     </>
   );
 }

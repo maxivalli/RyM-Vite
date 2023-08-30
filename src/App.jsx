@@ -11,6 +11,7 @@ import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import Welcome from "./components/Welcome/Welcome";
 import ImageP from "./components/ImageP/ImageP";
+import Footer from "./components/Footer/Footer";
 //Importaciones Views
 import NotFound from "./views/error/NotFound";
 import About from "./views/about/About";
@@ -96,7 +97,15 @@ function App() {
   return (
     <div className={style.App}>
       <Routes>
-        <Route path="/" element={<LandingPage login={login} />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <LandingPage login={login} />
+              <Footer />
+            </>
+          }
+        />
         <Route
           path="/home"
           element={
@@ -105,6 +114,7 @@ function App() {
                 <Navbar onSearch={searchHandler} onLogout={logout} />
                 <Cards characters={characters} onClose={closeHandler} />
                 {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
+                <Footer />
               </>
             ) : (
               <Navigate to="/" replace />
@@ -117,7 +127,8 @@ function App() {
             access ? (
               <>
                 <Navbar onSearch={searchHandler} onLogout={logout} />
-                <Favorites/>
+                <Favorites />
+                <Footer />
               </>
             ) : (
               <Navigate to="/" replace />
@@ -131,6 +142,7 @@ function App() {
               <>
                 <Navbar onSearch={searchHandler} onLogout={logout} />
                 <About />
+                <Footer />
               </>
             ) : (
               <Navigate to="/" replace />
@@ -144,6 +156,7 @@ function App() {
               <>
                 <Navbar onSearch={searchHandler} onLogout={logout} />
                 <ImageP />
+                <Footer />
               </>
             ) : (
               <Navigate to="/" replace />
@@ -157,6 +170,7 @@ function App() {
               <>
                 <Navbar onSearch={searchHandler} onLogout={logout} />
                 <Detail />
+                <Footer />
               </>
             ) : (
               <Navigate to="/" replace />

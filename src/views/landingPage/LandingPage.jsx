@@ -1,6 +1,5 @@
 import React from 'react'
 import Form from '../../components/Form/Form'
-import Footer from "../../components/Footer/Footer"
 import style from './LandingPage.module.css'
 import Logo from '../../assets/logo.png'
 
@@ -14,7 +13,6 @@ export default function LandingPage({ login }) {
     <div className={style.container}>
         <Form login={login}></Form>
     </div>
-    <Footer></Footer>
     </>
   )
 }

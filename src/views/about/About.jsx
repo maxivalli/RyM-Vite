@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer"
 import style from "./About.module.css";
 import Perfil from "../../assets/perfil.png";
 import Instagram from '../../assets/instagram.png';
@@ -30,7 +29,6 @@ export default function About() {
         </div>
       </div>
     </div>
-    <Footer></Footer>
     </>
   );
 }
