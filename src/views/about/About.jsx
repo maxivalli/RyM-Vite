@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../components/Footer/Footer"
 import style from "./About.module.css";
 import Perfil from "../../assets/perfil.png";
 import Instagram from '../../assets/instagram.png';
@@ -7,6 +8,7 @@ import Github from '../../assets/github.png'
 
 export default function About() {
   return (
+    <>
     <div className={style.aboutContainer}>
       <h2>ABOUT ME</h2>
       <div className={style.perfil}>
@@ -28,5 +30,7 @@ export default function About() {
         </div>
       </div>
     </div>
+    <Footer></Footer>
+    </>
   );
 }

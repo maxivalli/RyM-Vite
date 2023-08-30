@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer/Footer"
 import axios from "axios";
 import style from "./Detail.module.css";
 
@@ -26,6 +27,7 @@ export default function Detail() {
   }
 
   return (
+    <>
     <div className={style.component}>
       <img src={character.image && character.image} alt={character.name}></img>
       <h3 className={style.name}>{character.name && character.name}</h3>
@@ -42,5 +44,7 @@ export default function Detail() {
       <p className={style.data}> Location: {character.location?.name}</p>
       <button onClick={goBack} className={style.back}>BACK</button>
     </div>
+    <Footer></Footer>
+    </>
   );
 }
