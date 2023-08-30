@@ -91,7 +91,7 @@
 
 .name {
   color: blueviolet;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .dataContainer {
@@ -106,6 +106,10 @@
   font-size: 14px;
   color: gray;
   margin-top: -40px;
+}
+
+.Value {
+  color: aqua;
 }
 
 .masInfo {

@@ -23,26 +23,40 @@ export default function Detail() {
 
   const goBack = () => {
     navigate(-1);
-  }
+  };
 
   return (
     <>
-    <div className={style.component}>
-      <img src={character.image && character.image} alt={character.name}></img>
-      <h3 className={style.name}>{character.name && character.name}</h3>
-      <p className={style.data}>
-        Gender: {character.gender && character.gender}
-      </p>
-      <p className={style.data}>
-        Status: {character.status && character.status}
-      </p>
-      <p className={style.data}>
-        Species: {character.species && character.species}
-      </p>
-      <p className={style.data}>Origin: {character.origin?.name}</p>
-      <p className={style.data}> Location: {character.location?.name}</p>
-      <button onClick={goBack} className={style.back}>BACK</button>
-    </div>
+      <div className={style.component}>
+        <img
+          src={character.image && character.image}
+          alt={character.name}
+        ></img>
+        <h3 className={style.name}>{character.name && character.name}</h3>
+        <p className={style.data}>
+          <span>Gender: </span>
+          <span className={style.value}>{character.gender && character.gender}</span>
+        </p>
+        <p className={style.data}>
+          <span>Status: </span>
+          <span className={style.value}>{character.status && character.status}</span>
+        </p>
+        <p className={style.data}>
+          <span>Species: </span>
+          <span className={style.value}>{character.species && character.species}</span>
+        </p>
+        <p className={style.data}>
+          <span>Origin: </span>
+          <span className={style.value}>{character.origin?.name}</span>
+        </p>
+        <p className={style.data}>
+          <span>Location: </span>
+          <span className={style.value}>{character.location?.name}</span>
+        </p>
+        <button onClick={goBack} className={style.back}>
+          BACK
+        </button>
+      </div>
     </>
   );
 }

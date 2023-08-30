@@ -74,8 +74,14 @@ function Card(props) {
       </Link>
       <div className={style.dataContainer}>
         <h2 className={style.name}>{character.name}</h2>
-        <h2 className={style.data}>Status: {character.status}</h2>
-        <h2 className={style.data}>Gender: {character.gender}</h2>
+        <h2 className={style.data}>
+          <span>Status: </span>
+          <span className={style.Value}>{character.status}</span>
+        </h2>
+        <h2 className={style.data}>
+          <span>Gender: </span>
+          <span className={style.Value}>{character.gender}</span>
+        </h2>
       </div>
       <Link to={`/detail/${character.id}`}>
         <button className={style.masInfo}>MAS INFO</button>

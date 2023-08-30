@@ -1,12 +1,13 @@
 .selectors {
   display: grid;
+  position: fixed;
+  width: 100%;
   justify-content: center;
   height: 50px;
   grid-template-columns: 110px 110px 80px;
   gap: 20px;
   margin-top: 60px;
-  background-color: rgba(45, 45, 45, 0.5);
-  margin-bottom: -50px;
+  background-color: rgb(65, 63, 63);
 }
 
 .selectors select {
@@ -29,9 +30,13 @@
   justify-self: center;
 }
 
+.cards {
+  display: grid;
+  margin-top: 50px;
+}
+
 @media (max-width: 768px) {
   .selectors {
     margin-top: 150px;
-    margin-bottom: -150px;
   }
 }
