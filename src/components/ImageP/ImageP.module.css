@@ -28,7 +28,7 @@
 }
 
 .container:hover {
-  box-shadow: 3px 3px 20px greenyellow, -3px -3px 20px aqua;
+  box-shadow: 3px 3px 20px aqua, -3px -3px 20px greenyellow;
 }
 
 .container img {

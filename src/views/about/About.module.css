@@ -25,6 +25,10 @@
   box-shadow: 3px 3px 10px greenyellow, -3px -3px 10px aqua;
 }
 
+.aboutContainer:hover {
+  box-shadow: 3px 3px 20px aqua, -3px -3px 20px greenyellow;
+}
+
 .perfil img {
   margin-top: -35px;
   width: 130px;
