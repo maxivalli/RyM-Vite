@@ -1,5 +1,6 @@
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { orderFavorites, filterFavorites, resetFavorites, filterFavoritesStatus } from "../../redux/actions";
+import { orderFavorites, resetFavorites, filterByStatusAndGender } from "../../redux/actions";
 import Cards from "../../components/Cards/Cards";
 import style from "./Favorites.module.css";
 
@@ -7,16 +8,24 @@ export default function Favorites() {
   const favorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
 
+  const [filters, setFilters] = useState({
+    status: '',
+    gender: '',
+  });
+
+  useEffect(() => {
+    dispatch(filterByStatusAndGender(filters.status, filters.gender));
+  }, [filters.status, filters.gender]);
+
   function handleSort(e) {
     dispatch(orderFavorites(e.target.value));
   }
 
-  function handleFilter(e) {
-    dispatch(filterFavorites(e.target.value));
-  }
-
-  function handleFilterStatus(e) {
-    dispatch(filterFavoritesStatus(e.target.value))
+  function handleFilterChange(filterType, value) {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterType]: value,
+    }));
   }
 
   function handleReset() {
@@ -26,8 +35,8 @@ export default function Favorites() {
   return (
     <>
       <div className={style.selectors}>
-      <select onChange={handleFilterStatus}>
-          <option disabled selected value="">
+      <select value={filters.status} onChange={(e) => handleFilterChange('status', e.target.value)}>
+          <option value="">
             Status
           </option>
           {["Alive", "Dead", "unknown"].map((status) => (
@@ -36,8 +45,8 @@ export default function Favorites() {
             </option>
           ))}
         </select>
-        <select onChange={handleFilter}>
-          <option disabled selected value="">
+        <select value={filters.gender} onChange={(e) => handleFilterChange('gender', e.target.value)}>
+          <option value="">
             Género
           </option>
           {["Male", "Female", "unknown", "Genderless"].map((gender) => (

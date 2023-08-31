@@ -31,8 +31,8 @@
 }
 
 .reset:hover {
-  background-color: rgb(168, 104, 227);
   scale: 0.9;
+  background-color: rgb(170, 104, 231);
 }
 
 .cards {

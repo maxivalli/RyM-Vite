@@ -2,7 +2,7 @@ export const ADD_FAV = 'ADD_FAV'
 export const REMOVE_FAV = 'REMOVE_FAV'
 export const ORDER = 'ORDER'
 export const FILTER = 'FILTER'
-export const FILTER_STATUS = 'FILTER_STATUS'
+export const FILTER_BY_STATUS_GENDER = "FILTER_BY_STATUS_GENDER";
 export const RESET = 'RESET'
 export const CLEAR_FAVORITES = 'CLEAR_FAVORITES'
 
@@ -27,19 +27,12 @@ export function orderFavorites(order) {
     }
 };
 
-export function filterFavorites(gender) {
+export function filterByStatusAndGender(status, gender) {
     return {
-        type: FILTER,
-        payload: gender,
-    }
-};
-
-export function filterFavoritesStatus(status) {
-    return {
-        type: FILTER_STATUS,
-        payload: status,
-    }
-}
+      type: FILTER_BY_STATUS_GENDER,
+      payload: { status, gender },
+    };
+  }
 
 export function resetFavorites() {
     return {
