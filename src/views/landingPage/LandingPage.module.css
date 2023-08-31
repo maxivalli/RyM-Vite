@@ -13,6 +13,11 @@
   opacity: 30%;
 }
 
+.logo {
+  height: 200px;
+  margin-bottom: -90px;
+}
+
 .container {
   display: grid;
   justify-content: center;

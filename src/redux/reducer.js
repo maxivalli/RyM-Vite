@@ -60,6 +60,7 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         myFavorites: [],
+        allCharacters: []
       };
 
     default:
