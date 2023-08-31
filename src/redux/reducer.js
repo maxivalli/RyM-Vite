@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, RESET, CLEAR_FAVORITES } from "./actions";
+import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, FILTER_STATUS, RESET, CLEAR_FAVORITES } from "./actions";
 
 let initialState = { myFavorites: [], allCharacters: [] };
 
@@ -36,6 +36,14 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         myFavorites: state.allCharacters.filter(
           (character) => character.gender === action.payload
+        ),
+      };
+
+    case FILTER_STATUS:
+      return {
+        ...state,
+        myFavorites: state.allCharacters.filter(
+          (character) => character.status === action.payload
         ),
       };
 

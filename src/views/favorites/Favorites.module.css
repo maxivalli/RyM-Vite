@@ -4,7 +4,7 @@
   width: 100%;
   justify-content: center;
   height: 50px;
-  grid-template-columns: 110px 110px 80px;
+  grid-template-columns: 110px 110px 110px 80px;
   gap: 20px;
   margin-top: 60px;
   background-color: rgb(65, 63, 63);
@@ -30,6 +30,11 @@
   justify-self: center;
 }
 
+.reset:hover {
+  background-color: rgb(168, 104, 227);
+  scale: 0.9;
+}
+
 .cards {
   display: grid;
   margin-top: 50px;
@@ -38,5 +43,6 @@
 @media (max-width: 768px) {
   .selectors {
     margin-top: 150px;
+    grid-template-columns: 80px 80px 80px 50px;
   }
 }

@@ -2,6 +2,7 @@ export const ADD_FAV = 'ADD_FAV'
 export const REMOVE_FAV = 'REMOVE_FAV'
 export const ORDER = 'ORDER'
 export const FILTER = 'FILTER'
+export const FILTER_STATUS = 'FILTER_STATUS'
 export const RESET = 'RESET'
 export const CLEAR_FAVORITES = 'CLEAR_FAVORITES'
 
@@ -32,6 +33,13 @@ export function filterFavorites(gender) {
         payload: gender,
     }
 };
+
+export function filterFavoritesStatus(status) {
+    return {
+        type: FILTER_STATUS,
+        payload: status,
+    }
+}
 
 export function resetFavorites() {
     return {

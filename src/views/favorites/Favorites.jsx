@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { orderFavorites, filterFavorites, resetFavorites } from "../../redux/actions";
+import { orderFavorites, filterFavorites, resetFavorites, filterFavoritesStatus } from "../../redux/actions";
 import Cards from "../../components/Cards/Cards";
 import style from "./Favorites.module.css";
 
@@ -15,6 +15,10 @@ export default function Favorites() {
     dispatch(filterFavorites(e.target.value));
   }
 
+  function handleFilterStatus(e) {
+    dispatch(filterFavoritesStatus(e.target.value))
+  }
+
   function handleReset() {
     dispatch(resetFavorites());
   }
@@ -22,6 +26,16 @@ export default function Favorites() {
   return (
     <>
       <div className={style.selectors}>
+      <select onChange={handleFilterStatus}>
+          <option disabled selected value="">
+            Status
+          </option>
+          {["Alive", "Dead", "unknown"].map((status) => (
+            <option key={status} value={status}>
+              {status}
+            </option>
+          ))}
+        </select>
         <select onChange={handleFilter}>
           <option disabled selected value="">
             Género
