@@ -1,28 +1,28 @@
-//Importaciones Hooks y Axios
+//Importaciones de módulos y bibliotecas
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
-//Importaciones Redux
+//Importacion de actions de Redux
 import { useDispatch } from "react-redux";
 import { removeFavorite } from "./redux/actions";
 import { clearFavorites } from "./redux/actions";
-//Importaciones Componentes
+//Importaciones componentes
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import Welcome from "./components/Welcome/Welcome";
-import ImageP from "./components/ImageP/ImageP";
+import ImageP from "./views/ImageP/ImageP";
 import Footer from "./components/Footer/Footer";
-//Importaciones Views
+//Importaciones vistas
 import NotFound from "./views/error/NotFound";
 import About from "./views/about/About";
 import Detail from "./views/detail/Detail";
 import LandingPage from "./views/landingPage/LandingPage";
 import Favorites from "./views/favorites/Favorites";
-//Importacion Style
+//Importacion de estilos
 import style from "./App.module.css";
 
 function App() {
-  //Para manejar la validación y el Login
+  //Para manejar la validación y el inicio de sesion
 
   const EMAIL = import.meta.env.VITE_MAIL;
   const PASSWORD = import.meta.env.VITE_PASSWORD;
@@ -37,18 +37,21 @@ function App() {
       navigate("/home");
     }
   }
+  //Redirecciona a la pagina de inicio si no se ha iniciado sesion
+
   useEffect(() => {
     !access && navigate("/");
   }, [access]);
 
-  //Para manejar el Logout
+  //Para manejar el el cierre de sesion
 
   function logout() {
     setAccess(false);
-    setCharacters([]);
-    dispatch(clearFavorites());
+    setCharacters([]); //Limpia la lista de personajes
+    dispatch(clearFavorites()); // Limpia los favoritos en Redux
     navigate("/");
   }
+
   //Para manejar el mensaje de bienvenida
 
   const [isOpenWelcome, setIsOpenWelcome] = useState(true);
@@ -64,8 +67,8 @@ function App() {
   const closeHandler = (id) => {
     let deleted = characters.filter((character) => character.id !== Number(id));
 
-    dispatch(removeFavorite(id));
-    setCharacters(deleted);
+    dispatch(removeFavorite(id)); //Remueve el personaje de favoritos en Redux
+    setCharacters(deleted); // Actualiza la lista de personajes
   };
 
   //Para manejar la busqueda y cargar la Card
@@ -87,7 +90,7 @@ function App() {
     axios(`https://rickandmortyapi.com/api/character/${id}`)
       .then(({ data }) => {
         if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
+          setCharacters((oldChars) => [...oldChars, data]); //Agrega el personaje a la lista
         } else {
           window.alert("¡Debe ingresar un ID!");
         }
