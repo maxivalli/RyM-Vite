@@ -15,7 +15,7 @@ export function addFavorite (character) {
 export function removeFavorite (id) {
     return {
         type: REMOVE_FAV,
-        payload: id,
+        payload: id
     }
 };
 

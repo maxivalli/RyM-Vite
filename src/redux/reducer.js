@@ -24,6 +24,9 @@ export default function rootReducer(state = initialState, action) {
         myFavorites: state.myFavorites.filter(
           (character) => character.id !== Number(action.payload)
         ),
+        allCharacters: state.allCharacters.filter(
+          (character) => character.id !== Number(action.payload)
+        ),
       };
 
     case ORDER:

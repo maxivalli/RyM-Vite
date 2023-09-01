@@ -23,6 +23,7 @@ import style from "./App.module.css";
 
 function App() {
   //Para manejar la validación y el Login
+
   const EMAIL = import.meta.env.VITE_MAIL;
   const PASSWORD = import.meta.env.VITE_PASSWORD;
 
@@ -36,11 +37,12 @@ function App() {
       navigate("/home");
     }
   }
-
   useEffect(() => {
     !access && navigate("/");
   }, [access]);
+
   //Para manejar el Logout
+
   function logout() {
     setAccess(false);
     setCharacters([]);
@@ -48,22 +50,26 @@ function App() {
     navigate("/");
   }
   //Para manejar el mensaje de bienvenida
+
   const [isOpenWelcome, setIsOpenWelcome] = useState(true);
 
   const handleCloseWelcome = () => {
     setIsOpenWelcome(false);
   };
+
   //Para manejar el boton de cierre de las Cards
+
   const [characters, setCharacters] = useState([]);
 
   const closeHandler = (id) => {
     let deleted = characters.filter((character) => character.id !== Number(id));
 
     dispatch(removeFavorite(id));
-
     setCharacters(deleted);
   };
+
   //Para manejar la busqueda y cargar la Card
+
   const searchHandler = (id) => {
     if (id > 826) {
       window.alert("¡Solo hay 826 IDs de personajes!");

@@ -56,7 +56,7 @@ export default function Favorites() {
           ))}
         </select>
         <select onChange={handleSort}>
-          <option disabled selected value="">
+          <option value="">
             Orden
           </option>
           {["Ascendente", "Descendente"].map((order) => (
