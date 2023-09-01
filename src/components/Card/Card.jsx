@@ -32,9 +32,8 @@ function Card(props) {
       }
     });
   }, [favorites]);
-
-  //Función para manejar la adición o eliminación del personaje de la lista de favoritos
   
+  //Función para manejar la adición o eliminación del personaje de la lista de favoritos
   function handleFavorite(data) {
     if (!isFav) {
       addFavorite(data);
@@ -77,9 +76,9 @@ function Card(props) {
       <div className={style.id}>
         <h2>Id: {character.id}</h2>
       </div>
-      <Link to={`/image/${character.id}`} className={style.image}>
+      <div className={style.image}>
         <img src={character.image} alt={character.name} />
-      </Link>
+      </div>
       <div className={style.dataContainer}>
         <h2 className={style.name}>{character.name}</h2>
         <h2 className={style.data}>
