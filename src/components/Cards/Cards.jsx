@@ -21,8 +21,9 @@ export default function Cards(props) {
     <div className={style.story}>
       <Slider {...sliderSettings} className={style.slide}>
         {characters.map((character) => (
-          <Link to={`/image/${character.id}`} key={character.id}>
+          <Link to={`/image/${character.id}`} key={character.id} className={style.link}>
             <img src={character.image} alt={`Character ${character.id}`}/>
+            <p className={style.storyName}>{character.name}</p>
           </Link>
         ))}
         </Slider>

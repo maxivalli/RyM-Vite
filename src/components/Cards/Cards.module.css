@@ -24,7 +24,7 @@
 .story {
   position: fixed;
   justify-self: center;
-  width: 400px;
+  width: 450px;
   margin-top: 70px;
   height: fit-content;
   background-color: rgba(240, 248, 255, 0.8);
@@ -43,12 +43,26 @@
   margin-bottom: 0;
   margin-right: 3px;
   margin-left: 3px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: 2px solid violet;
+  border: 3px solid violet;
   transition: 200ms;
   cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.storyName {
+  font-size: 8px;
+  color: black;
+  margin-top: -5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
 }
 
 @media (max-width: 1280px) {
