@@ -12,8 +12,8 @@ export default function Cards(props) {
     dots: true,
     infinite: false, 
     speed: 500,
-    slidesToShow: Math.min(6, characters.length), 
-    slidesToScroll: 6,
+    slidesToShow: Math.min(5, characters.length), 
+    slidesToScroll: 5,
   };
 
   return (
