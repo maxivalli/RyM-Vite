@@ -4,7 +4,7 @@
   align-content: center;
   align-self: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  width: 350px;
+  width: 450px;
   height: 50px;
   border-radius: 10px;
   background-color: rgb(45, 45, 45);
@@ -14,7 +14,7 @@
   width: 250px;
   height: 35px;
   font-size: 14px;
-  font-family: 'Orbitron';
+  font-family: "Orbitron";
   align-self: center;
   border-radius: 5px;
   background-color: rgb(245, 245, 245);
@@ -143,6 +143,9 @@
 }
 
 @media (max-width: 1280px) {
+  .searchBar {
+    width: 350px;
+  }
   .searchBar input {
     width: 150px;
   }
@@ -156,5 +159,4 @@
   .searchBar input {
     width: 150px;
   }
-
 }

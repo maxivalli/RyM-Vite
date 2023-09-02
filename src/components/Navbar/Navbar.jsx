@@ -5,11 +5,12 @@ import Logo from "../../assets/logo.png";
 
 export default function Navbar({ onSearch, onLogout }) {
   return (
+    <div className={style.container}>
     <div className={style.navbar}>
       <div className={style.logo}>
         <img src={Logo}></img>
       </div>
-      <SearchBar onSearch={onSearch} />
+      <SearchBar onSearch={onSearch} className={style.search}/>
       <div className={style.buttons}>
         <Link to="/home" className={style.homeButton}>
           <h3>HOME</h3>
@@ -21,6 +22,7 @@ export default function Navbar({ onSearch, onLogout }) {
           LOGOUT
         </h3>
       </div>
+    </div>
     </div>
   );
 }

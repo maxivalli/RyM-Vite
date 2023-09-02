@@ -69,9 +69,9 @@ export default function Favorites() {
           RESET
         </button>
       </div>
-      <div className={style.cards}>
-      <Cards characters={favorites} className={style.cards} />
-      </div>
+      
+      <Cards characters={favorites}/>
+      
     </>
   );
 }

@@ -19,16 +19,16 @@ export default function Cards(props) {
   return (
     <>
     <div className={style.story}>
-      <Slider {...sliderSettings} className={style.slide}>
+      <Slider {...sliderSettings} className={style.slick}>
         {characters.map((character) => (
           <Link to={`/image/${character.id}`} key={character.id} className={style.link}>
             <img src={character.image} alt={`Character ${character.id}`}/>
-            <p className={style.storyName}>{character.name}</p>
+            <p>{character.name}</p>
           </Link>
         ))}
         </Slider>
       </div>
-      <div className={style.mainContainer}>
+      <div className={style.container}>
         {characters.map((character) => (
           <Card key={character.id} character={character} onClose={onClose} />
         ))}
