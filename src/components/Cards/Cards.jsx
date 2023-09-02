@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import "./SlickStyle.css"
 import "slick-carousel/slick/slick-theme.css";
 import style from "./Cards.module.css";
 
