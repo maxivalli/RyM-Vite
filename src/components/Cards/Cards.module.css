@@ -1,4 +1,4 @@
-.mainContainer::before {
+/* .mainContainer::before {
   content: "";
   position: fixed;
   top: 0;
@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
   background-position: center;
   opacity: 30%;
-}
+} */
 
 .mainContainer {
   display: grid;

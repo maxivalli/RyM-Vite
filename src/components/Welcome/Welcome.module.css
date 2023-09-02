@@ -1,7 +1,9 @@
 .wellcomeContainer {
+  position: absolute;
+  z-index: 9999;
   display: grid;
   justify-self: center;
-  margin-top: -100px;
+  margin-top: 180px;
   width: 450px;
   height: 500px;
   background-color: rgba(45, 45, 45, 0.9);
@@ -70,7 +72,7 @@
 
 @media (max-width: 768px) {
   .wellcomeContainer {
-    margin-top: -100px;
+    margin-top: 190px;
     width: 300px;
     height: 450px;
   }
