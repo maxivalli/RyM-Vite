@@ -4,16 +4,6 @@ import Logo from "../../assets/logo.png";
 
 export default function Wellcome({ onClose }) {
 
-  const [isOpen, setIsOpen] = useState(true);
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  if (!isOpen) {
-    return null;
-  }
-
   return (
     <div className={style.wellcomeContainer}>
       <h2>WELCOME</h2>
