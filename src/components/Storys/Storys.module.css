@@ -1,0 +1,65 @@
+.story {
+  position: fixed;
+  justify-self: center;
+  width: 450px;
+  margin-top: 80px;
+  height: fit-content;
+  background-color: rgba(65, 65, 65, 0.7);
+  border-radius: 10px;
+  z-index: 999;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.story img {
+  padding: 3px;
+  display: inline;
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid fuchsia;
+  transition: 200ms;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.story img:hover {
+  scale: 1.1;
+  box-shadow: 0px 0px 5px violet;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 8px;
+  color: black;
+}
+
+.link p {
+  color: aliceblue;
+  margin-top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .story {
+    width: 300px;
+    margin-top: 160px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .story img {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+  }
+}

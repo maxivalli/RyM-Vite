@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Welcome from "./components/Welcome/Welcome";
 import ImageP from "./views/ImageP/ImageP";
 import Footer from "./components/Footer/Footer";
+import Storys from "./components/Storys/Storys";
 //Importaciones vistas
 import NotFound from "./views/error/NotFound";
 import About from "./views/about/About";
@@ -121,6 +122,7 @@ function App() {
             access ? (
               <>
                 <Navbar onSearch={searchHandler} onLogout={logout} />
+                <Storys characters={characters}/>
                 <Cards characters={characters} onClose={closeHandler} />
                 {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
                 <Footer />
