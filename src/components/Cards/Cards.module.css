@@ -16,7 +16,7 @@
 .container {
   display: grid;
   justify-self: center;
-  margin-top: 10%;
+  margin-top: 16vh;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 30px;
 }
@@ -27,21 +27,9 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .container {
     grid-template-columns: 1fr;
-    margin-top: 200px;
-  }
-
-  .story {
-    width: 300px;
-    margin-top: 210px;
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .story img {
-    width: 40px;
-    height: 40px;
+    margin-top: 220px;
   }
 }

@@ -11,8 +11,18 @@ export default function Storys(props) {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: Math.min(5, characters.length),
-    slidesToScroll: 5,
+    slidesToShow: Math.min(10, characters.length),
+    slidesToScroll: 10,
+    className: "slider variable-width",
+    variableWidth: true,
+    responsive: [{
+      breakpoint: 900,
+      settings: {
+      slidesToShow: Math.min(4, characters.length),
+      slidesToScroll: 4,
+      className: "slider variable-width",
+      variableWidth: true,
+  }}]
   };
 
   return (
