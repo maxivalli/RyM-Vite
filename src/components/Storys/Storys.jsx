@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -7,6 +8,12 @@ import style from "./Storys.module.css";
 export default function Storys(props) {
   const { characters } = props;
 
+  const favorites = useSelector((state) => state.myFavorites);
+
+  const isCharacterInFavorites = (character) => {
+    return favorites.some((favorite) => favorite.id === character.id);
+  };
+
   const sliderSettings = {
     dots: true,
     infinite: false,
@@ -15,14 +22,17 @@ export default function Storys(props) {
     slidesToScroll: 10,
     className: "slider variable-width",
     variableWidth: true,
-    responsive: [{
-      breakpoint: 900,
-      settings: {
-      slidesToShow: Math.min(4, characters.length),
-      slidesToScroll: 4,
-      className: "slider variable-width",
-      variableWidth: true,
-  }}]
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: Math.min(4, characters.length),
+          slidesToScroll: 4,
+          className: "slider variable-width",
+          variableWidth: true,
+        },
+      },
+    ],
   };
 
   return (
@@ -32,7 +42,9 @@ export default function Storys(props) {
           <Link
             to={`/image/${character.id}`}
             key={character.id}
-            className={style.link}
+            className={`${style.link} ${
+              isCharacterInFavorites(character) ? style.favorite : ""
+            }`}
           >
             <img src={character.image} alt={`Character ${character.id}`} />
             <p>{character.name}</p>

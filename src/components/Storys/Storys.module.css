@@ -49,6 +49,14 @@
   padding-left: 10px;
 }
 
+.favorite img {
+  border: 3px solid greenyellow;
+}
+
+.favorite img:hover {
+  box-shadow: 0px 0px 5px yellowgreen;
+}
+
 @media (max-width: 900px) {
   .story {
     width: 290px;

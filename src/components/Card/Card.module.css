@@ -40,7 +40,8 @@
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  border: 3px solid greenyellow;
+  border: 3px solid gray;
+  padding: 3px;
   transition: 200ms;
 }
 
