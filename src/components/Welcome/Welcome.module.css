@@ -6,9 +6,11 @@
   margin-top: 100px;
   width: 450px;
   height: 500px;
-  background-color: rgba(45, 45, 45, 0.9);
   border-radius: 20px;
-  box-shadow: 3px 3px 10px greenyellow, -3px -3px 10px aqua;
+  border: 5px solid transparent;
+  background: linear-gradient(black, black) padding-box,
+  linear-gradient(45deg, #FF52E5, #F6D242) border-box;
+  transition: 200ms;
   animation: grow 0.7s forwards;
 }
 
@@ -22,7 +24,7 @@
 }
 
 .wellcomeContainer:hover {
-  box-shadow: 3px 3px 20px greenyellow, -3px -3px 20px aqua;
+  box-shadow: 3px 3px 20px #FF52E5, -3px -3px 20px #F6D242;
 }
 
 .wellcomeContainer h2 {

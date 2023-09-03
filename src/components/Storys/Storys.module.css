@@ -21,7 +21,9 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 3px solid fuchsia;
+  border: 3px solid transparent;
+  background: linear-gradient(rgb(195, 195, 195), rgb(195, 195, 195)) padding-box,
+  linear-gradient(45deg, #FF52E5, #F6D242) border-box;
   transition: 200ms;
   cursor: pointer;
   z-index: 9999;
@@ -50,7 +52,9 @@
 }
 
 .favorite img {
-  border: 3px solid greenyellow;
+  border: 3px solid transparent;
+  background: linear-gradient(rgb(195, 195, 195), rgb(195, 195, 195)) padding-box,
+  linear-gradient(45deg, rgb(0, 227, 0), greenyellow) border-box;
 }
 
 .favorite img:hover {
