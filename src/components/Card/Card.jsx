@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 //Importaciones Redux
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/actions";
 //Importacion estilos
 import style from "./Card.module.css";
@@ -32,7 +32,7 @@ function Card(props) {
       }
     });
   }, [favorites]);
-  
+
   //Función para manejar la adición o eliminación del personaje de la lista de favoritos
   function handleFavorite(data) {
     if (!isFav) {
@@ -44,8 +44,18 @@ function Card(props) {
     }
   }
 
+  const favoritos = useSelector((state) => state.myFavorites);
+
+  const isCharacterInFavorites = (character) => {
+    return favoritos.some((favorite) => favorite.id === character.id);
+  };
+
   return (
-    <div className={style.component}>
+    <div
+      className={`${style.component} ${
+        isCharacterInFavorites(character) ? style.favorite : ""
+      }`}
+    >
       <div className={style.buttons}>
         {isFav ? (
           <button

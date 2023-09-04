@@ -19,6 +19,15 @@
   box-shadow: 3px 3px 20px #FF52E5, -3px -3px 20px #F6D242;
 }
 
+.favorite {
+  background: linear-gradient(black, black) padding-box,
+  linear-gradient(45deg, rgb(0, 227, 0), greenyellow) border-box;
+}
+
+.favorite:hover {
+  box-shadow: 3px 3px 20px rgb(0, 227, 0), -3px -3px 20px greenyellow;
+}
+
 .id {
   display: grid;
   width: 80px;
