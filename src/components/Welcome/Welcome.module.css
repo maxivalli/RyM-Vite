@@ -8,7 +8,7 @@
   height: 500px;
   border-radius: 20px;
   border: 5px solid transparent;
-  background: linear-gradient(black, black) padding-box,
+  background: linear-gradient(rgb(15,15,15), rgb(15,15,15)) padding-box,
   linear-gradient(45deg, #FF52E5, #F6D242) border-box;
   transition: 200ms;
   animation: grow 0.7s forwards;
