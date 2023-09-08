@@ -8,7 +8,7 @@ export default function Cards(props) {
     <>
       <div className={style.container}>
         {characters.map((character) => (
-          <Card key={character.id} character={character} onClose={onClose} />
+          <Card key={character.id} character={character} onClose={onClose}/>
         ))}
       </div>
     </>

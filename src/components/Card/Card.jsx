@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 //
-import sound from "../../assets/soundFx.mp3"
+import sound from "../../assets/soundFx.mp3";
+import sound2 from "../../assets/soundFx2.mp3";
 //Importaciones Redux
 import { connect, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/actions";
@@ -12,22 +13,33 @@ import style from "./Card.module.css";
 function Card(props) {
   const { character, onClose, addFavorite, removeFavorite, favorites } = props;
 
-  //Estado local para controlar la reproduccion de un sonido cuando se agrega un Fav
-  
+  //Funcion para los sonidos del boton de favoritos
+
   const [isSoundPlaying, setSoundPlaying] = useState(false);
 
   const playSound = () => {
-    const audioElement = document.getElementById('sonido');
+    const audioElement = document.getElementById("sonido");
     if (audioElement) {
       if (isSoundPlaying) {
-        
         audioElement.pause();
         audioElement.currentTime = 0;
       }
       audioElement.play();
       setSoundPlaying(true);
     }
-  }
+  };
+
+  const playSound2 = () => {
+    const audioElement2 = document.getElementById("sonido2");
+    if (audioElement2) {
+      if (isSoundPlaying) {
+        audioElement2.pause();
+        audioElement2.currentTime = 0;
+      }
+      audioElement2.play();
+      setSoundPlaying(true);
+    }
+  };
 
   //Estado local para controlar si el personaje es un favorito y si se debe mostrar el botón de cerrar
 
@@ -61,6 +73,7 @@ function Card(props) {
     } else {
       removeFavorite(data);
       setIsFav(false);
+      playSound2();
     }
   }
 
@@ -77,6 +90,7 @@ function Card(props) {
       }`}
     >
       <audio id="sonido" src={sound}></audio>
+      <audio id="sonido2" src={sound2}></audio>
       <div className={style.buttons}>
         {isFav ? (
           <button

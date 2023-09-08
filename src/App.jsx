@@ -13,7 +13,7 @@ import Welcome from "./components/Welcome/Welcome";
 import ImageP from "./views/ImageP/ImageP";
 import Footer from "./components/Footer/Footer";
 import Storys from "./components/Storys/Storys";
-import sound2 from "../src/assets/trash.mp3"
+import sound3 from "../src/assets/trash.mp3";
 //Importaciones vistas
 import NotFound from "./views/error/NotFound";
 import About from "./views/about/About";
@@ -62,31 +62,33 @@ function App() {
     setIsOpenWelcome(false);
   };
 
+  // Para manejar los sonidos de los botones de la Card
+
+  const [isSoundPlaying, setSoundPlaying] = useState(false);
+
+  const playSound3 = () => {
+    const audioElement3 = document.getElementById("sonido3");
+    if (audioElement3) {
+      if (isSoundPlaying) {
+        audioElement3.pause();
+        audioElement3.currentTime = 0;
+      }
+      audioElement3.play();
+      setSoundPlaying(true);
+    }
+  };
+
   //Para manejar el boton de cierre de las Cards
 
   const [characters, setCharacters] = useState([]);
-  const [isSoundPlaying, setSoundPlaying] = useState(false);
 
   const closeHandler = (id) => {
     let deleted = characters.filter((character) => character.id !== Number(id));
 
     dispatch(removeFavorite(id)); //Remueve el personaje de favoritos en Redux
     setCharacters(deleted); // Actualiza la lista de personajes
-    playSound2();
+    playSound3();
   };
-
-  const playSound2 = () => {
-    const audioElement = document.getElementById('sonido2');
-    if (audioElement) {
-      if (isSoundPlaying) {
-        
-        audioElement.pause();
-        audioElement.currentTime = 0;
-      }
-      audioElement.play();
-      setSoundPlaying(true);
-    }
-  }
 
   //Para manejar la busqueda y cargar la Card
 
@@ -138,9 +140,9 @@ function App() {
             access ? (
               <>
                 <Navbar onSearch={searchHandler} onLogout={logout} />
-                <Storys characters={characters}/>
+                <Storys characters={characters} />
                 <Cards characters={characters} onClose={closeHandler} />
-                <audio id="sonido2" src={sound2}></audio>
+                <audio id="sonido3" src={sound3}></audio>
                 {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
                 <Footer />
               </>
