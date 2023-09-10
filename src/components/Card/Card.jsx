@@ -1,19 +1,35 @@
 //Importaciones React
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-//
+//Importacion de archivos
 import sound from "../../assets/soundFx.mp3";
 import sound2 from "../../assets/soundFx2.mp3";
 //Importaciones Redux
-import { connect, useSelector } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/actions";
 //Importacion estilos
 import style from "./Card.module.css";
 
 function Card(props) {
-  const { character, onClose, addFavorite, removeFavorite, favorites } = props;
+  const {
+    character,
+    characters,
+    setCharacters,
+    addFavorite,
+    removeFavorite,
+    favorites,
+    button
+  } = props;
 
-  //Funcion para los sonidos del boton de favoritos
+  const [closeButton, setCloseButton] = useState(true);
+
+  useEffect(() => {
+    if (!button) {
+      setCloseButton(false);
+    }
+  }, []);
+
+  //Funciones para los sonidos de los botones de la Card
 
   const [isSoundPlaying, setSoundPlaying] = useState(false);
 
@@ -41,20 +57,21 @@ function Card(props) {
     }
   };
 
-  //Estado local para controlar si el personaje es un favorito y si se debe mostrar el botón de cerrar
-
-  const [isFav, setIsFav] = useState(false);
-  const [closeButton, setCloseButton] = useState(true);
-
-  //Para manejar el renderizado del boton Close
-
-  useEffect(() => {
-    if (!onClose) {
-      setCloseButton(false);
+  const playSound3 = () => {
+    const audioElement3 = document.getElementById("sonido3");
+    if (audioElement3) {
+      if (isSoundPlaying) {
+        audioElement3.pause();
+        audioElement3.currentTime = 0;
+      }
+      audioElement3.play();
+      setSoundPlaying(true);
     }
-  }, []);
+  };
 
   //Para determinar si el personaje es un favorito y actualizar el estado en consecuencia
+
+  const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
     favorites.forEach((fav) => {
@@ -65,6 +82,7 @@ function Card(props) {
   }, [favorites]);
 
   //Función para manejar la adición o eliminación del personaje de la lista de favoritos
+
   function handleFavorite(data) {
     if (!isFav) {
       addFavorite(data);
@@ -81,6 +99,18 @@ function Card(props) {
 
   const isCharacterInFavorites = (character) => {
     return favoritos.some((favorite) => favorite.id === character.id);
+  };
+
+  // Funcion para manejar el cierre de la Card 
+
+  const dispatch = useDispatch();
+
+  const closeHandler = (id) => {
+    let deleted = characters.filter((character) => character.id !== Number(id));
+
+    dispatch(removeFavorite(id)); //Remueve el personaje de favoritos en Redux
+    setCharacters(deleted); // Actualiza la lista de personajes
+    playSound3();
   };
 
   return (
@@ -107,10 +137,10 @@ function Card(props) {
             🤍
           </button>
         )}
-        {closeButton && (
+        {button && (
           <button
             onClick={() => {
-              onClose(character.id);
+              closeHandler(character.id);
             }}
             className={style.close}
           >

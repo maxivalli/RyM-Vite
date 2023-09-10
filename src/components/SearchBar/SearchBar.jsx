@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import style from "./SearchBar.module.css";
 import searchIcon from "../../assets/search.png";
 import randomIcon from "../../assets/random.png";
 import favIcon from "../../assets/fav.png";
 import musicIcon from "../../assets/music.png";
 
-export default function SearchBar({ onSearch }) {
+export default function SearchBar({ characters, setCharacters }) {
+  
   const [id, setId] = useState("");
 
   function HandleChange(e) {
@@ -20,7 +22,7 @@ export default function SearchBar({ onSearch }) {
   function handleRandomClick() {
     const randomId = Math.floor(Math.random() * 826) + 1;
 
-    onSearch(randomId);
+    searchHandler(randomId);
 
     setId("");
   }
@@ -44,6 +46,36 @@ export default function SearchBar({ onSearch }) {
     audio.play();
   }
 
+  const searchHandler = (id) => {
+    if (id > 826) {
+      window.alert("¡Solo hay 826 IDs de personajes!");
+      return;
+    }
+
+    const isIdLoaded = characters.some(
+      (character) => character.id === Number(id)
+    );
+    if (isIdLoaded) {
+      window.alert("¡Ese ID ya está cargado!");
+      return;
+    }
+
+    axios(`https://rickandmortyapi.com/api/character/${id}`)
+      .then(({ data }) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]); //Agrega el personaje a la lista
+        } else {
+          window.alert("¡Debe ingresar un ID!");
+        }
+      })
+
+      .catch((error) => {
+        console.log("Error:", error);
+
+        window.alert("Ocurrió un error al realizar la solicitud");
+      });
+  };
+
   return (
     <div className={style.searchBar}>
       <Link to="/favoritos" className={style.favButton}>
@@ -60,7 +92,7 @@ export default function SearchBar({ onSearch }) {
         value={id}
         onChange={HandleChange}
       />
-      <button className={style.search} onClick={() => onSearch(id)}>
+      <button className={style.search} onClick={() => searchHandler(id)}>
         <img src={searchIcon} />
       </button>
       <button

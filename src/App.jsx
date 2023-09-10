@@ -4,7 +4,6 @@ import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
 //Importacion de actions de Redux
 import { useDispatch } from "react-redux";
-import { removeFavorite } from "./redux/actions";
 import { clearFavorites } from "./redux/actions";
 //Importaciones componentes
 import Cards from "./components/Cards/Cards";
@@ -13,6 +12,7 @@ import Welcome from "./components/Welcome/Welcome";
 import ImageP from "./views/ImageP/ImageP";
 import Footer from "./components/Footer/Footer";
 import Storys from "./components/Storys/Storys";
+//Importacion de archivos 
 import sound3 from "../src/assets/trash.mp3";
 //Importaciones vistas
 import NotFound from "./views/error/NotFound";
@@ -32,13 +32,15 @@ function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
   const dispatch = useDispatch();
+  const [characters, setCharacters] = useState([]);
 
   function login(userData) {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
       setAccess(true);
       navigate("/home");
     }
-  }
+  };
+
   //Redirecciona a la pagina de inicio si no se ha iniciado sesion
 
   useEffect(() => {
@@ -62,65 +64,7 @@ function App() {
     setIsOpenWelcome(false);
   };
 
-  // Para manejar los sonidos de los botones de la Card
-
-  const [isSoundPlaying, setSoundPlaying] = useState(false);
-
-  const playSound3 = () => {
-    const audioElement3 = document.getElementById("sonido3");
-    if (audioElement3) {
-      if (isSoundPlaying) {
-        audioElement3.pause();
-        audioElement3.currentTime = 0;
-      }
-      audioElement3.play();
-      setSoundPlaying(true);
-    }
-  };
-
-  //Para manejar el boton de cierre de las Cards
-
-  const [characters, setCharacters] = useState([]);
-
-  const closeHandler = (id) => {
-    let deleted = characters.filter((character) => character.id !== Number(id));
-
-    dispatch(removeFavorite(id)); //Remueve el personaje de favoritos en Redux
-    setCharacters(deleted); // Actualiza la lista de personajes
-    playSound3();
-  };
-
-  //Para manejar la busqueda y cargar la Card
-
-  const searchHandler = (id) => {
-    if (id > 826) {
-      window.alert("¡Solo hay 826 IDs de personajes!");
-      return;
-    }
-
-    const isIdLoaded = characters.some(
-      (character) => character.id === Number(id)
-    );
-    if (isIdLoaded) {
-      window.alert("¡Ese ID ya está cargado!");
-      return;
-    }
-
-    axios(`https://rickandmortyapi.com/api/character/${id}`)
-      .then(({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]); //Agrega el personaje a la lista
-        } else {
-          window.alert("¡Debe ingresar un ID!");
-        }
-      })
-
-      .catch((error) => {
-        console.log("Error:", error);
-
-        window.alert("Ocurrió un error al realizar la solicitud");
-      });
-  };
+  const button = () => {};
 
   return (
     <div className={style.App}>
@@ -139,9 +83,9 @@ function App() {
           element={
             access ? (
               <>
-                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <Navbar characters={characters} setCharacters={setCharacters} onLogout={logout} />
                 <Storys characters={characters} />
-                <Cards characters={characters} onClose={closeHandler} />
+                <Cards characters={characters} setCharacters={setCharacters} button={button}/>
                 <audio id="sonido3" src={sound3}></audio>
                 {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
                 <Footer />
@@ -156,7 +100,7 @@ function App() {
           element={
             access ? (
               <>
-                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <Navbar characters={characters} setCharacters={setCharacters} onLogout={logout} />
                 <Favorites />
                 <Footer />
               </>
@@ -170,7 +114,7 @@ function App() {
           element={
             access ? (
               <>
-                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <Navbar characters={characters} setCharacters={setCharacters} onLogout={logout} />
                 <About />
                 <Footer />
               </>
@@ -184,7 +128,7 @@ function App() {
           element={
             access ? (
               <>
-                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <Navbar characters={characters} setCharacters={setCharacters} onLogout={logout} />
                 <ImageP />
                 <Footer />
               </>
@@ -198,7 +142,7 @@ function App() {
           element={
             access ? (
               <>
-                <Navbar onSearch={searchHandler} onLogout={logout} />
+                <Navbar characters={characters} setCharacters={setCharacters} onLogout={logout} />
                 <Detail />
                 <Footer />
               </>

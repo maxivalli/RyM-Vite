@@ -3,14 +3,14 @@ import SearchBar from "../SearchBar/SearchBar";
 import style from "./Navbar.module.css";
 import Logo from "../../assets/logo.png";
 
-export default function Navbar({ onSearch, onLogout }) {
+export default function Navbar({ characters, setCharacters, onLogout }) {
   return (
     <div className={style.container}>
     <div className={style.navbar}>
       <div className={style.logo}>
         <img src={Logo}></img>
       </div>
-      <SearchBar onSearch={onSearch} className={style.search}/>
+      <SearchBar characters={characters} setCharacters={setCharacters} className={style.search}/>
       <div className={style.buttons}>
         <Link to="/home" className={style.homeButton}>
           <h3>HOME</h3>
