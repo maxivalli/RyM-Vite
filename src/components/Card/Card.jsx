@@ -1,9 +1,6 @@
 //Importaciones React
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-//Importacion de archivos
-import sound from "../../assets/soundFx.mp3";
-import sound2 from "../../assets/soundFx2.mp3";
 //Importaciones Redux
 import { connect, useSelector, useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/actions";
@@ -18,7 +15,7 @@ function Card(props) {
     addFavorite,
     removeFavorite,
     favorites,
-    button
+    button,
   } = props;
 
   const [closeButton, setCloseButton] = useState(true);
@@ -101,7 +98,7 @@ function Card(props) {
     return favoritos.some((favorite) => favorite.id === character.id);
   };
 
-  // Funcion para manejar el cierre de la Card 
+  // Funcion para manejar el cierre de la Card
 
   const dispatch = useDispatch();
 
@@ -119,8 +116,6 @@ function Card(props) {
         isCharacterInFavorites(character) ? style.favorite : ""
       }`}
     >
-      <audio id="sonido" src={sound}></audio>
-      <audio id="sonido2" src={sound2}></audio>
       <div className={style.buttons}>
         {isFav ? (
           <button
