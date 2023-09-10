@@ -137,7 +137,7 @@ function Card(props) {
             🤍
           </button>
         )}
-        {button && (
+        {closeButton && (
           <button
             onClick={() => {
               closeHandler(character.id);

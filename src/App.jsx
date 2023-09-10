@@ -64,7 +64,9 @@ function App() {
     setIsOpenWelcome(false);
   };
 
-  const button = () => {};
+  //Para manejar el renderizado del boton close de la Card
+
+  const button = true;
 
   return (
     <div className={style.App}>
