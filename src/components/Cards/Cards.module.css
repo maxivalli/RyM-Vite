@@ -16,9 +16,15 @@
 .container {
   display: grid;
   justify-self: center;
-  margin-top: 20vh;
+  margin-top: 22vh;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 30px;
+}
+
+@media (max-height: 900px) {
+  .container {
+    margin-top: 27vh;
+  }
 }
 
 @media (max-width: 1400px) {

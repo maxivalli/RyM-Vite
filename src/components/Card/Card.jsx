@@ -127,7 +127,7 @@ function Card(props) {
         ) : (
           <button
             onClick={() => handleFavorite(character)}
-            className={style.fav}
+            className={style.notFav}
           >
             🤍
           </button>

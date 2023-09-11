@@ -1,7 +1,6 @@
 //Importaciones de módulos y bibliotecas
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
-import axios from "axios";
 //Importacion de actions de Redux
 import { useDispatch } from "react-redux";
 import { clearFavorites } from "./redux/actions";
@@ -120,6 +119,7 @@ function App() {
                   onLogout={logout}
                 />
                 <Favorites />
+                <audio id="sonido2" src={sound2}></audio>
                 <Footer />
               </>
             ) : (
