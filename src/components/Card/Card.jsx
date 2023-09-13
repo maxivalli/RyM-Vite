@@ -54,25 +54,25 @@ function Card(props) {
   };
 
   const playSound2 = () => {
-    const audioElement2 = document.getElementById("sonido2");
-    if (audioElement2) {
+    const audioElement = document.getElementById("sonido2");
+    if (audioElement) {
       if (isSoundPlaying) {
-        audioElement2.pause();
-        audioElement2.currentTime = 0;
+        audioElement.pause();
+        audioElement.currentTime = 0;
       }
-      audioElement2.play();
+      audioElement.play();
       setSoundPlaying(true);
     }
   };
 
   const playSound3 = () => {
-    const audioElement3 = document.getElementById("sonido3");
-    if (audioElement3) {
+    const audioElement = document.getElementById("sonido3");
+    if (audioElement) {
       if (isSoundPlaying) {
-        audioElement3.pause();
-        audioElement3.currentTime = 0;
+        audioElement.pause();
+        audioElement.currentTime = 0;
       }
-      audioElement3.play();
+      audioElement.play();
       setSoundPlaying(true);
     }
   };

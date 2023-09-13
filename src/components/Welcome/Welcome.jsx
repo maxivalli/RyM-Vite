@@ -7,13 +7,13 @@ export default function Wellcome({ onClose }) {
   const [isSoundPlaying, setSoundPlaying] = useState(false);
 
   const playSound4 = () => {
-    const audioElement4 = document.getElementById("sonido4");
-    if (audioElement4) {
+    const audioElement = document.getElementById("sonido4");
+    if (audioElement) {
       if (isSoundPlaying) {
-        audioElement4.pause();
-        audioElement4.currentTime = 0;
+        audioElement.pause();
+        audioElement.currentTime = 0;
       }
-      audioElement4.play();
+      audioElement.play();
       setSoundPlaying(true);
     }
   };
