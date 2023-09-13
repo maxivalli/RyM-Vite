@@ -15,6 +15,7 @@ import Storys from "./components/Storys/Storys";
 import sound from "../src/assets/soundFx.mp3";
 import sound2 from "../src/assets/soundFx2.mp3";
 import sound3 from "../src/assets/trash.mp3";
+import sound4 from "../src/assets/welcome.mp3"
 //Importaciones vistas
 import NotFound from "./views/error/NotFound";
 import About from "./views/about/About";
@@ -86,6 +87,7 @@ function App() {
           element={
             access ? (
               <>
+                <audio id="sonido4" src={sound4}></audio>
                 <Navbar
                   characters={characters}
                   setCharacters={setCharacters}

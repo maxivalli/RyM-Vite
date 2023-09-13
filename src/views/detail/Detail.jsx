@@ -25,6 +25,14 @@ export default function Detail() {
     navigate(-1);
   };
 
+  const handleSearchClick = () => {
+    if (character.name) {
+      const searchTerm = encodeURIComponent(character.name);
+
+      window.open(`https://www.google.com/search?q=${searchTerm} ${"Rick and Morty"}`, "_blank");
+    }
+  };
+
   return (
     <>
       <div className={style.component}>
@@ -53,9 +61,14 @@ export default function Detail() {
           <span>Location: </span>
           <span className={style.value}>{character.location?.name}</span>
         </p>
-        <button onClick={goBack} className={style.back}>
-          BACK
-        </button>
+        <div className={style.buttons}>
+          <button onClick={handleSearchClick} className={style.search}>
+            MAS INFO
+          </button>
+          <button onClick={goBack} className={style.back}>
+            BACK
+          </button>
+        </div>
       </div>
     </>
   );

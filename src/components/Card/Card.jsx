@@ -19,6 +19,19 @@ function Card(props) {
   } = props;
 
   const [closeButton, setCloseButton] = useState(true);
+  const [isSoundPlaying, setSoundPlaying] = useState(false);
+  const [isFav, setIsFav] = useState(false);
+  const favoritos = useSelector((state) => state.myFavorites);
+
+  //
+
+  const closeHandler = (id) => {
+    let deleted = characters.filter((character) => character.id !== Number(id));
+
+    removeFavorite(id); //Remueve el personaje de favoritos en Redux
+    setCharacters(deleted); // Actualiza la lista de personajes
+    playSound3();
+  };
 
   useEffect(() => {
     if (!button) {
@@ -26,9 +39,7 @@ function Card(props) {
     }
   }, []);
 
-  //Funciones para los sonidos de los botones de la Card
-
-  const [isSoundPlaying, setSoundPlaying] = useState(false);
+  //
 
   const playSound = () => {
     const audioElement = document.getElementById("sonido");
@@ -66,9 +77,11 @@ function Card(props) {
     }
   };
 
-  //Para determinar si el personaje es un favorito y actualizar el estado en consecuencia
+  //
 
-  const [isFav, setIsFav] = useState(false);
+  const isCharacterInFavorites = (character) => {
+    return favoritos.some((favorite) => favorite.id === character.id);
+  };
 
   useEffect(() => {
     favorites.forEach((fav) => {
@@ -77,8 +90,6 @@ function Card(props) {
       }
     });
   }, [favorites]);
-
-  //Función para manejar la adición o eliminación del personaje de la lista de favoritos
 
   function handleFavorite(data) {
     if (!isFav) {
@@ -91,24 +102,6 @@ function Card(props) {
       playSound2();
     }
   }
-
-  const favoritos = useSelector((state) => state.myFavorites);
-
-  const isCharacterInFavorites = (character) => {
-    return favoritos.some((favorite) => favorite.id === character.id);
-  };
-
-  // Funcion para manejar el cierre de la Card
-
-  const dispatch = useDispatch();
-
-  const closeHandler = (id) => {
-    let deleted = characters.filter((character) => character.id !== Number(id));
-
-    dispatch(removeFavorite(id)); //Remueve el personaje de favoritos en Redux
-    setCharacters(deleted); // Actualiza la lista de personajes
-    playSound3();
-  };
 
   return (
     <div
@@ -161,7 +154,7 @@ function Card(props) {
         </h2>
       </div>
       <Link to={`/detail/${character.id}`}>
-        <button className={style.masInfo}>MAS INFO</button>
+        <button className={style.masInfo}>DETAIL</button>
       </Link>
     </div>
   );

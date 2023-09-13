@@ -10,6 +10,7 @@ import musicIcon from "../../assets/music.png";
 export default function SearchBar({ characters, setCharacters }) {
   
   const [id, setId] = useState("");
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
   function HandleChange(e) {
     e.preventDefault();
@@ -25,25 +26,6 @@ export default function SearchBar({ characters, setCharacters }) {
     searchHandler(randomId);
 
     setId("");
-  }
-
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-
-  function toggleAudio() {
-    var audio = document.getElementById("myAudio");
-    if (audio.paused) {
-      audio.play();
-      setIsAudioPlaying(true);
-    } else {
-      audio.pause();
-      setIsAudioPlaying(false);
-    }
-  }
-
-  function handleAudioEnded() {
-    var audio = document.getElementById("myAudio");
-    audio.currentTime = 0;
-    audio.play();
   }
 
   const searchHandler = (id) => {
@@ -75,6 +57,23 @@ export default function SearchBar({ characters, setCharacters }) {
         window.alert("Ocurrió un error al realizar la solicitud");
       });
   };
+
+  function toggleAudio() {
+    var audio = document.getElementById("myAudio");
+    if (audio.paused) {
+      audio.play();
+      setIsAudioPlaying(true);
+    } else {
+      audio.pause();
+      setIsAudioPlaying(false);
+    }
+  }
+
+  function handleAudioEnded() {
+    var audio = document.getElementById("myAudio");
+    audio.currentTime = 0;
+    audio.play();
+  }
 
   return (
     <div className={style.searchBar}>

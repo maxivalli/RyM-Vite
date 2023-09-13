@@ -4,6 +4,20 @@ import Logo from "../../assets/logo.png";
 
 export default function Wellcome({ onClose }) {
 
+  const [isSoundPlaying, setSoundPlaying] = useState(false);
+
+  const playSound4 = () => {
+    const audioElement4 = document.getElementById("sonido4");
+    if (audioElement4) {
+      if (isSoundPlaying) {
+        audioElement4.pause();
+        audioElement4.currentTime = 0;
+      }
+      audioElement4.play();
+      setSoundPlaying(true);
+    }
+  };
+
   return (
     <div className={style.wellcomeContainer}>
       <h2>WELCOME</h2>
@@ -23,7 +37,7 @@ export default function Wellcome({ onClose }) {
         </p>
       </div>
       <div>
-        <button onClick={onClose} className={style.close}>CLOSE</button>
+      <button onClick={() => { onClose(); playSound4(); }} className={style.close}>CLOSE</button>
       </div>
     </div>
   );

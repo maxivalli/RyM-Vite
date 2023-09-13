@@ -63,6 +63,11 @@
   color: aqua;
 }
 
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .back {
   display: grid;
   justify-self: center;
@@ -78,6 +83,25 @@
 }
 
 .back:hover {
+  scale: 0.9;
+  background-color: rgb(179, 120, 235);
+}
+
+.search {
+  display: grid;
+  justify-self: center;
+  width: 70px;
+  height: 30px;
+  background-color: blueviolet;
+  color: aliceblue;
+  font-family:'Orbitron';
+  font-size: 10px;
+  border: 0;
+  border-radius: 10PX;
+  align-content: center;
+}
+
+.search:hover {
   scale: 0.9;
   background-color: rgb(179, 120, 235);
 }
