@@ -1,6 +1,10 @@
 export const validate = (user) => {
   let errors = {};
 
+  if (!user.email && !user.password) {
+    console.log("Debe ingresar un usuario y contraseña");
+  }
+
   if (!user.email) {
     errors.email = "Ingrese un email";
   } else if (!/^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/.test(user.email)) {

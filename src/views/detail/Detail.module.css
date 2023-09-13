@@ -92,8 +92,8 @@
   justify-self: center;
   width: 70px;
   height: 30px;
-  background-color: blueviolet;
-  color: aliceblue;
+  background-color: orange;
+  color: black;
   font-family:'Orbitron';
   font-size: 10px;
   border: 0;
@@ -103,7 +103,7 @@
 
 .search:hover {
   scale: 0.9;
-  background-color: rgb(179, 120, 235);
+  background-color: rgb(255, 200, 99);
 }
 
 @media (max-width: 768px) {
