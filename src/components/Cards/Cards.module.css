@@ -3,7 +3,7 @@
   width: 250px;
   position: fixed;
   z-index: 1; 
-  top: 10px; 
+  top: 60px; 
   left: -350px;
   animation: bounceUpDown 10s ease-in-out infinite;
 }
@@ -29,10 +29,11 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 35%;
+  opacity: 25%;
 }
 
 .container {
+  z-index: 2;
   display: grid;
   justify-self: center;
   margin-top: 22vh;
