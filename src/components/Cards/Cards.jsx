@@ -1,6 +1,5 @@
 import Card from "../Card/Card";
-import morty from "../../assets/morty.png"
-import rick from "../../assets/rick.png"
+import rocket from "../../assets/rocket.png"
 import style from "./Cards.module.css";
 
 export default function Cards(props) {
@@ -8,8 +7,7 @@ export default function Cards(props) {
 
   return (
     <>
-    <img src={morty} className={style.morty}></img>
-    <img src={rick} className={style.rick}></img>
+    <img src={rocket} className={style.rocket}></img>
       <div className={style.container}>
         {characters.map((character) => (
           <Card key={character.id} character={character} characters={characters} setCharacters={setCharacters} button={button} />

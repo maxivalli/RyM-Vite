@@ -1,52 +1,19 @@
-.morty {
+.rocket {
   height: auto;
-  width: 150px;
+  width: 250px;
   position: fixed;
   z-index: 1; 
-  top: -300px; 
-  left: 100px;
-  animation: bounceUpDown 10s ease-in-out 1;
-  animation-delay: 5s, 15s;
+  top: 10px; 
+  left: -350px;
+  animation: bounceUpDown 10s ease-in-out infinite;
 }
 
 @keyframes bounceUpDown {
   0% {
-    transform: translateY(-300px);
-  }
-  25% {
-    transform: translateY(300px); 
-  }
-  75% {
-    transform: translateY(300px);
+    transform: translate(0px);
   }
   100% {
-    transform: translateY(-300px);
-  }
-}
-
-.rick {
-  height: auto;
-  width: 300px;
-  position: fixed;
-  z-index: 1; 
-  top: -300px; 
-  right: 50px;
-  animation: bounceUpDown 10s ease-in-out 1;
-  animation-delay: 10s, 20s;
-}
-
-@keyframes bounceUpDown {
-  0% {
-    transform: translateY(-300px);
-  }
-  25% {
-    transform: translateY(300px); 
-  }
-  75% {
-    transform: translateY(300px);
-  }
-  100% {
-    transform: translateY(-300px);
+    transform: translate(2500px); 
   }
 }
 
@@ -80,28 +47,20 @@
 }
 
 @media (max-width: 1400px) {
-  .morty {
+  .rocket {
     display: none;
   }
-
-  .rick {
-    display: none;
-  }
-
+  
   .container {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media (max-width: 900px) {
-  .morty {
+  .rocket {
     display: none;
   }
 
-  .rick {
-    display: none;
-  }
-  
   .container {
     grid-template-columns: 1fr;
     margin-top: 220px;
