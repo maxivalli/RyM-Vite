@@ -27,8 +27,8 @@ import style from "./App.module.css";
 function App() {
   //Para manejar la validación y el inicio de sesion
 
-  const EMAIL = import.meta.env.VITE_MAIL;
-  const PASSWORD = import.meta.env.VITE_PASSWORD;
+  const EMAIL = "ejemplo@mail.com"; /* import.meta.env.VITE_MAIL; */
+  const PASSWORD = "1password"; /* import.meta.env.VITE_PASSWORD; */
 
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
