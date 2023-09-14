@@ -85,7 +85,7 @@ function Card(props) {
 
   return (
     <div
-      className={`${style.component} ${
+      className={`${style.container} ${
         isCharacterInFavorites(character) ? style.favorite : ""
       }`}
     >
