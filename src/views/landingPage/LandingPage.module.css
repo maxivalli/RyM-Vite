@@ -13,6 +13,13 @@
   opacity: 30%;
 }
 
+.morty {
+  position: fixed;
+  z-index: 1;
+  right: 100px;
+  top: 100px;
+}
+
 .logo {
   height: 200px;
   margin-bottom: -90px;
@@ -34,4 +41,10 @@
 
 img {
   width: 300px;
+}
+
+@media (max-width: 900px) {
+  .morty {
+    display: none;
+  }
 }
