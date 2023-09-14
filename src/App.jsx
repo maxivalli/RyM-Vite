@@ -21,7 +21,6 @@ import Favorites from "./views/favorites/Favorites";
 import style from "./App.module.css";
 
 function App() {
-  //Para manejar la validación y el inicio de sesion
 
   const EMAIL = "ejemplo@mail.com"; /* import.meta.env.VITE_MAIL; */
   const PASSWORD = "1password"; /* import.meta.env.VITE_PASSWORD; */
@@ -38,22 +37,22 @@ function App() {
     }
   }
 
-  //Redirecciona a la pagina de inicio si no se ha iniciado sesion
+  //
 
   useEffect(() => {
     !access && navigate("/");
   }, [access]);
 
-  //Para manejar el el cierre de sesion
+  //
 
   function logout() {
     setAccess(false);
-    setCharacters([]); //Limpia la lista de personajes
-    dispatch(clearFavorites()); // Limpia los favoritos en Redux
+    setCharacters([]); 
+    dispatch(clearFavorites()); 
     navigate("/");
   }
 
-  //Para manejar el mensaje de bienvenida
+  //
 
   const [isOpenWelcome, setIsOpenWelcome] = useState(true);
 
@@ -61,7 +60,7 @@ function App() {
     setIsOpenWelcome(false);
   };
 
-  //Para manejar el renderizado del boton close de la Card
+  //
 
   const button = true;
 
