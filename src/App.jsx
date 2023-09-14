@@ -11,11 +11,6 @@ import Welcome from "./components/Welcome/Welcome";
 import ImageP from "./views/ImageP/ImageP";
 import Footer from "./components/Footer/Footer";
 import Storys from "./components/Storys/Storys";
-//Importacion de archivos
-import sound from "../src/assets/soundFx.mp3";
-import sound2 from "../src/assets/soundFx2.mp3";
-import sound3 from "../src/assets/trash.mp3";
-import sound4 from "../src/assets/welcome.mp3"
 //Importaciones vistas
 import NotFound from "./views/error/NotFound";
 import About from "./views/about/About";
@@ -87,7 +82,6 @@ function App() {
           element={
             access ? (
               <>
-                <audio id="sonido4" src={sound4}></audio>
                 <Navbar
                   characters={characters}
                   setCharacters={setCharacters}
@@ -99,9 +93,6 @@ function App() {
                   setCharacters={setCharacters}
                   button={button}
                 />
-                <audio id="sonido" src={sound}></audio>
-                <audio id="sonido2" src={sound2}></audio>
-                <audio id="sonido3" src={sound3}></audio>
                 {isOpenWelcome && <Welcome onClose={handleCloseWelcome} />}
                 <Footer />
               </>
@@ -121,7 +112,6 @@ function App() {
                   onLogout={logout}
                 />
                 <Favorites />
-                <audio id="sonido2" src={sound2}></audio>
                 <Footer />
               </>
             ) : (

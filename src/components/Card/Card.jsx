@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 //Importaciones Redux
 import { connect, useSelector, useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/actions";
+//Importaciones de audio
+import sound from "../../assets/soundFx.mp3";
+import sound2 from "../../assets/soundFx2.mp3";
+import sound3 from "../../assets/trash.mp3";
 //Importacion estilos
 import style from "./Card.module.css";
 
@@ -30,7 +34,7 @@ function Card(props) {
 
     removeFavorite(id); //Remueve el personaje de favoritos en Redux
     setCharacters(deleted); // Actualiza la lista de personajes
-    playSound3();
+    playSound(sound3);
   };
 
   useEffect(() => {
@@ -41,40 +45,16 @@ function Card(props) {
 
   //
 
-  const playSound = () => {
-    const audioElement = document.getElementById("sonido");
-    if (audioElement) {
-      if (isSoundPlaying) {
-        audioElement.pause();
-        audioElement.currentTime = 0;
-      }
-      audioElement.play();
-      setSoundPlaying(true);
-    }
-  };
+  const playSound = (audioFile) => {
+    const audioElement = new Audio(audioFile);
 
-  const playSound2 = () => {
-    const audioElement = document.getElementById("sonido2");
-    if (audioElement) {
-      if (isSoundPlaying) {
-        audioElement.pause();
-        audioElement.currentTime = 0;
-      }
-      audioElement.play();
-      setSoundPlaying(true);
+    if (isSoundPlaying) {
+      audioElement.pause();
+      audioElement.currentTime = 0;
     }
-  };
 
-  const playSound3 = () => {
-    const audioElement = document.getElementById("sonido3");
-    if (audioElement) {
-      if (isSoundPlaying) {
-        audioElement.pause();
-        audioElement.currentTime = 0;
-      }
-      audioElement.play();
-      setSoundPlaying(true);
-    }
+    audioElement.play();
+    setSoundPlaying(true);
   };
 
   //
@@ -95,11 +75,11 @@ function Card(props) {
     if (!isFav) {
       addFavorite(data);
       setIsFav(true);
-      playSound();
+      playSound(sound);
     } else {
       removeFavorite(data);
       setIsFav(false);
-      playSound2();
+      playSound(sound2);
     }
   }
 
