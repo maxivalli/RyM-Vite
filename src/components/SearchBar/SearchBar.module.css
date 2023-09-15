@@ -32,6 +32,7 @@
   margin-left: 10px;
   border-radius: 50%;
   border: 0;
+  transition: 200ms;
 }
 
 .search:hover {
@@ -42,6 +43,33 @@
 
 .search img {
   width: 27px;
+  animation: moving 1.1s ease-in-out infinite;
+}
+
+@keyframes moving {
+  0% {
+    transform: rotate(10deg);
+    scale: 1.1;
+  }
+  15% {
+    transform: rotate(-10deg);
+    scale: 1.1;
+  }
+  30% {
+    transform: rotate(10deg);
+    scale: 1.1;
+  }
+  45% {
+    transform: rotate(-10deg);
+    scale: 1.1;
+  }
+  60% {
+    transform: rotate(10deg);
+    scale: 1.1;
+  }
+  100% {
+    scale: 0.9;
+  }
 }
 
 .music {
@@ -54,6 +82,7 @@
   margin-left: 10px;
   border-radius: 50%;
   border: 0;
+  transition: 200ms;
 }
 
 .music:hover {
@@ -76,25 +105,18 @@
   margin-right: 10px;
   border-radius: 50%;
   border: 0;
+  transition: 200ms;
 }
 
 .random:hover {
   scale: 0.9;
   background-color: rgb(179, 120, 235);
   box-shadow: 0px 0px 5px violet;
+  rotate: 180deg;
 }
 
 .random img {
   width: 27px;
-}
-
-@keyframes latido {
-  from {
-    transform: scale(0.7);
-  }
-  to {
-    transform: rotate(1.4);
-  }
 }
 
 .favButton {
@@ -108,6 +130,7 @@
   height: 40px;
   border: 0;
   margin-right: 10px;
+  transition: 200ms;
 }
 
 .favButton button:hover {
@@ -119,7 +142,21 @@
 .favButton button img {
   width: 27px;
   padding-top: 5px;
-  animation: latido 1s linear infinite;
+  animation: latido 1s ease-in infinite;
+}
+
+@keyframes latido {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: rotate(1.4);
+  }
+}
+
+.rotating {
+  animation: rotate 2s linear infinite;
+  background-color: aquamarine;
 }
 
 @keyframes rotate {
@@ -129,11 +166,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.rotating {
-  animation: rotate 2s linear infinite;
-  background-color: aquamarine;
 }
 
 .rotating:hover {
