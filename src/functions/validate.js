@@ -8,7 +8,7 @@ export const validate = (user) => {
   if (!user.email) {
     errors.email = "Ingrese un email";
   } else if (!/^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/.test(user.email)) {
-    errors.email = "Ingrese un email válido";
+    errors.email = "Ingrese: ejemplo@mail.com"; // "Ingrese un email válido"
   } else if (user.email.length > 35) {
     errors.email = "El email no puede tener más de 35 caracteres";
   }
@@ -16,7 +16,7 @@ export const validate = (user) => {
   if (!user.password) {
     errors.password = "Ingrese una contraseña";
   } else if (user.password.length < 6 || user.password.length > 10) {
-    errors.password = "La contraseña debe tener entre 6 y 10 caracteres";
+    errors.password = "Ingrese: 1password"; //"La contraseña debe tener entre 6 y 10 caracteres"
   } else if (!/[a-zA-Z]/.test(user.password) || !/\d/.test(user.password)) {
     errors.password = "La contraseña debe contener al menos una letra y un número";
   }
