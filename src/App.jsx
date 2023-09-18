@@ -179,3 +179,5 @@ function App() {
 }
 
 export default App;
+
+//`https://rym2-production.up.railway.app/api/character/${1}?key=henrym-maxivalli`
